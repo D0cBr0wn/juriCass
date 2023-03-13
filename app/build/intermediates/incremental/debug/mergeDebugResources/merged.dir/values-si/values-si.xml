@@ -6,7 +6,7 @@
     <string msgid="6312721426453364202" name="default_popup_window_title">"උත්පතන කවුළුව"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"පතන මෙනුව"</string>
     <string msgid="6827826412747255547" name="in_progress">"ප්‍රගතියේ පවතී"</string>
-    <string msgid="2486394087603402002" name="indeterminate">"හරි ලකුණු යොදා හෝ හරි ලකුණු යෙදීම ඉවත් කර නැත"</string>
+    <string msgid="7933458017204019916" name="indeterminate">"අඩ වශයෙන් ලකුණු කළ"</string>
     <string msgid="542007171693138492" name="navigation_menu">"සංචාලන මෙනුව"</string>
     <string msgid="6610465462668679431" name="not_selected">"තෝරා නැත"</string>
     <string msgid="875452955155264703" name="off">"ක්‍රියාවිරහිතයි"</string>

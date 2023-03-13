@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-35:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-40:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\af985f4411c5c3630bf0bb3742355ffd\\transformed\\core-1.7.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\5956e0d7139b242db726f7868d50dfb1\\transformed\\ui-1.3.3\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,182,258,345,436,514,588,665,743,818,883,948,1021,1096,1164,1232",
+                        "endColumns": "76,75,86,90,77,73,76,77,74,64,64,72,74,67,67,115",
+                        "endOffsets": "177,253,340,431,509,583,660,738,813,878,943,1016,1091,1159,1227,1343"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,182,258,345,436,514,588,665,743,818,883,948,1021,1096,1265,1333",
+                        "endColumns": "76,75,86,90,77,73,76,77,74,64,64,72,74,67,67,115",
+                        "endOffsets": "177,253,340,431,509,583,660,738,813,878,943,1016,1091,1159,1328,1444"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\43eeba27e46c0f9e8270c8e6a59600bf\\transformed\\core-1.9.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -15,26 +32,9 @@
                     "to": {
                         "startLines": "16",
                         "startColumns": "4",
-                        "startOffsets": "1171",
+                        "startOffsets": "1164",
                         "endColumns": "100",
-                        "endOffsets": "1267"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\ee0593255a549dcdf0ce481b028dbc04\\transformed\\ui-1.2.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,182,258,345,436,514,588,672,750,825,890,955,1028,1103,1171,1239",
-                        "endColumns": "76,75,86,90,77,73,83,77,74,64,64,72,74,67,67,115",
-                        "endOffsets": "177,253,340,431,509,583,667,745,820,885,950,1023,1098,1166,1234,1350"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,182,258,345,436,514,588,672,750,825,890,955,1028,1103,1272,1340",
-                        "endColumns": "76,75,86,90,77,73,83,77,74,64,64,72,74,67,67,115",
-                        "endOffsets": "177,253,340,431,509,583,667,745,820,885,950,1023,1098,1166,1335,1451"
+                        "endOffsets": "1260"
                     }
                 }
             ]

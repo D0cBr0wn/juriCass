@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-35:/values-or/values-or.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-40:/values-or/values-or.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\ee0593255a549dcdf0ce481b028dbc04\\transformed\\ui-1.2.0\\res\\values-or\\values-or.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\5956e0d7139b242db726f7868d50dfb1\\transformed\\ui-1.3.3\\res\\values-or\\values-or.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,202,289,381,481,567,644,755,843,930,1000,1070,1148,1230,1300,1367",
-                        "endColumns": "96,86,91,99,85,76,110,87,86,69,69,77,81,69,66,118",
-                        "endOffsets": "197,284,376,476,562,639,750,838,925,995,1065,1143,1225,1295,1362,1481"
+                        "startOffsets": "105,202,289,381,481,567,644,742,830,917,987,1057,1135,1217,1287,1354",
+                        "endColumns": "96,86,91,99,85,76,97,87,86,69,69,77,81,69,66,118",
+                        "endOffsets": "197,284,376,476,562,639,737,825,912,982,1052,1130,1212,1282,1349,1468"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,202,289,381,481,567,644,755,843,930,1000,1070,1148,1230,1401,1468",
-                        "endColumns": "96,86,91,99,85,76,110,87,86,69,69,77,81,69,66,118",
-                        "endOffsets": "197,284,376,476,562,639,750,838,925,995,1065,1143,1225,1295,1463,1582"
+                        "startOffsets": "105,202,289,381,481,567,644,742,830,917,987,1057,1135,1217,1388,1455",
+                        "endColumns": "96,86,91,99,85,76,97,87,86,69,69,77,81,69,66,118",
+                        "endOffsets": "197,284,376,476,562,639,737,825,912,982,1052,1130,1212,1282,1450,1569"
                     }
                 },
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\af985f4411c5c3630bf0bb3742355ffd\\transformed\\core-1.7.0\\res\\values-or\\values-or.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\43eeba27e46c0f9e8270c8e6a59600bf\\transformed\\core-1.9.0\\res\\values-or\\values-or.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -32,9 +32,9 @@
                     "to": {
                         "startLines": "16",
                         "startColumns": "4",
-                        "startOffsets": "1300",
+                        "startOffsets": "1287",
                         "endColumns": "100",
-                        "endOffsets": "1396"
+                        "endOffsets": "1383"
                     }
                 }
             ]

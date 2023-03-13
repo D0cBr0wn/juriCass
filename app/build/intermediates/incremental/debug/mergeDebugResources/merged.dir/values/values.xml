@@ -95,6 +95,7 @@
     <item name="text2" type="id"/>
     <item name="title" type="id"/>
     <id name="view_tree_lifecycle_owner"/>
+    <id name="view_tree_on_back_pressed_dispatcher_owner"/>
     <id name="view_tree_saved_state_registry_owner"/>
     <id name="view_tree_view_model_store_owner"/>
     <item name="wrapped_composition_tag" type="id"/>
@@ -107,7 +108,7 @@
     <string name="default_popup_window_title" ns1:ignore="ExtraTranslation">"Pop-Up Window"</string>
     <string name="dropdown_menu">"Dropdown menu"</string>
     <string name="in_progress">In progress</string>
-    <string name="indeterminate">Neither checked nor unchecked</string>
+    <string name="indeterminate">Partially checked</string>
     <string name="navigation_menu">"Navigation menu"</string>
     <string name="not_selected">Not selected</string>
     <string name="off">Off</string>
@@ -120,6 +121,13 @@
     <string name="template_percent"><ns2:g id="percentage">%1$d</ns2:g> percent.</string>
     <style name="DialogWindowTheme">
         <item name="android:windowClipToOutline">false</item>
+    </style>
+    <style name="FloatingDialogTheme">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="FloatingDialogWindowTheme">
+        <item name="android:windowClipToOutline">false</item>
+        <item name="android:dialogTheme">@style/FloatingDialogTheme</item>
     </style>
     <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
     <style name="TextAppearance.Compat.Notification.Info">

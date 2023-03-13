@@ -6,7 +6,7 @@
     <string msgid="6312721426453364202" name="default_popup_window_title">"ポップアップウィンドウ"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"プルダウン メニュー"</string>
     <string msgid="6827826412747255547" name="in_progress">"処理しています"</string>
-    <string msgid="2486394087603402002" name="indeterminate">"オンでもオフでもありません"</string>
+    <string msgid="7933458017204019916" name="indeterminate">"一部 ON"</string>
     <string msgid="542007171693138492" name="navigation_menu">"ナビゲーションメニュー"</string>
     <string msgid="6610465462668679431" name="not_selected">"未選択"</string>
     <string msgid="875452955155264703" name="off">"オフ"</string>

@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-35:/values-hr/values-hr.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-40:/values-hr/values-hr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\ee0593255a549dcdf0ce481b028dbc04\\transformed\\ui-1.2.0\\res\\values-hr\\values-hr.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\5956e0d7139b242db726f7868d50dfb1\\transformed\\ui-1.3.3\\res\\values-hr\\values-hr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,210,297,391,490,580,659,758,853,938,1010,1081,1162,1248,1321,1391",
-                        "endColumns": "104,86,93,98,89,78,98,94,84,71,70,80,85,72,69,117",
-                        "endOffsets": "205,292,386,485,575,654,753,848,933,1005,1076,1157,1243,1316,1386,1504"
+                        "startOffsets": "105,210,297,391,490,580,659,752,847,932,1004,1075,1156,1242,1315,1385",
+                        "endColumns": "104,86,93,98,89,78,92,94,84,71,70,80,85,72,69,117",
+                        "endOffsets": "205,292,386,485,575,654,747,842,927,999,1070,1151,1237,1310,1380,1498"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,210,297,391,490,580,659,758,853,938,1010,1081,1162,1248,1422,1492",
-                        "endColumns": "104,86,93,98,89,78,98,94,84,71,70,80,85,72,69,117",
-                        "endOffsets": "205,292,386,485,575,654,753,848,933,1005,1076,1157,1243,1316,1487,1605"
+                        "startOffsets": "105,210,297,391,490,580,659,752,847,932,1004,1075,1156,1242,1416,1486",
+                        "endColumns": "104,86,93,98,89,78,92,94,84,71,70,80,85,72,69,117",
+                        "endOffsets": "205,292,386,485,575,654,747,842,927,999,1070,1151,1237,1310,1481,1599"
                     }
                 },
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\af985f4411c5c3630bf0bb3742355ffd\\transformed\\core-1.7.0\\res\\values-hr\\values-hr.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\43eeba27e46c0f9e8270c8e6a59600bf\\transformed\\core-1.9.0\\res\\values-hr\\values-hr.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -32,9 +32,9 @@
                     "to": {
                         "startLines": "16",
                         "startColumns": "4",
-                        "startOffsets": "1321",
+                        "startOffsets": "1315",
                         "endColumns": "100",
-                        "endOffsets": "1417"
+                        "endOffsets": "1411"
                     }
                 }
             ]

@@ -6,7 +6,7 @@
     <string msgid="6312721426453364202" name="default_popup_window_title">"పాప్-అప్ విండో"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"డ్రాప్‌డౌన్ మెనూ"</string>
     <string msgid="6827826412747255547" name="in_progress">"ప్రోగ్రెస్‌లో ఉంది"</string>
-    <string msgid="2486394087603402002" name="indeterminate">"చెక్ చేయబడలేదు అలాగే చెక్ చేయబడదు"</string>
+    <string msgid="7933458017204019916" name="indeterminate">"పాక్షికంగా ఎంచుకోబడింది"</string>
     <string msgid="542007171693138492" name="navigation_menu">"నావిగేషన్ మెనూ"</string>
     <string msgid="6610465462668679431" name="not_selected">"ఎంచుకోబడలేదు"</string>
     <string msgid="875452955155264703" name="off">"ఆఫ్‌లో ఉంది"</string>
