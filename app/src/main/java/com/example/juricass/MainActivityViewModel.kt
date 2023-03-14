@@ -1,5 +1,6 @@
 package com.example.juricass
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.juricass.data.state.MainActivityState
@@ -15,8 +16,14 @@ class MainActivityViewModel(): ViewModel() {
     val mainActivityState: StateFlow<MainActivityState> = _mainActivityState.asStateFlow()
     fun getHealthCheck() {
         viewModelScope.launch {
-            val healthResult = JudilibreApi.retrofitService.healthcheck()
-            _mainActivityState.update { currentState -> currentState.copy(healthCheck = healthResult) }
+            JudilibreApi.retrofitService.healthcheck().onSuccess {
+                Log.e("success", "success" + it)
+                _mainActivityState.update { currentState -> currentState.copy(healthCheck = it) }
+            }
+            .onFailure {
+                Log.e("failure", it.toString())
+            }
+
         }
     }
 }

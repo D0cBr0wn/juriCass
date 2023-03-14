@@ -6,11 +6,11 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+
 
 
 private const val BASE_URL = "https://sandbox-api.piste.gouv.fr"//"https://api.piste.gouv.fr"
-private const  val API_KEY = "a453fd66-7f55-48b9-bd2f-fda4d6666392"
+private const  val API_KEY = "a453fd66-7f55-48b9-bd2f-fda4d6666392"//a453fd66-7f55-48b9-bd2f-fda4d6666392
 
 private val client = OkHttpClient.Builder()
     .addInterceptor(object : Interceptor {
@@ -28,11 +28,12 @@ private val retrofit = Retrofit.Builder()
     .addConverterFactory(ScalarsConverterFactory.create())
     .baseUrl(BASE_URL)
     .client(client)
+    .addCallAdapterFactory(ResultCallAdapterFactory())
     .build()
 
 interface JudilibreApiService {
     @GET("cassation/judilibre/v1.0/healthcheck")
-    suspend fun healthcheck(): String
+    suspend fun healthcheck(): Result<String>
 }
 
 object JudilibreApi {
