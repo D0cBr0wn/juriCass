@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JuriCass</string>
+    <string name="loading">loading</string>
 </resources>

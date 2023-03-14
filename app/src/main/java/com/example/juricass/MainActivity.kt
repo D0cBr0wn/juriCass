@@ -1,12 +1,10 @@
 package com.example.juricass
 
+import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -19,6 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel = MainActivityViewModel()
@@ -59,7 +59,25 @@ fun Greeting(name: String, viewModel: MainActivityViewModel) {
     }
         Text(text = state.healthCheck)
     }
+    if(state.isLoading) Loader()
+
 }
+
+@Composable
+fun Loader(modifier: Modifier = Modifier) {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = modifier.fillMaxSize()
+    ) {
+        Text(text = stringResource(R.string.loading))
+//        Image(
+//            modifier = Modifier.size(200.dp),
+//            painter = painterResource(R.drawable.loading_img),
+//            contentDescription = stringResource(R.string.loading)
+//        )
+    }
+}
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

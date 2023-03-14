@@ -16,14 +16,15 @@ class MainActivityViewModel(): ViewModel() {
     val mainActivityState: StateFlow<MainActivityState> = _mainActivityState.asStateFlow()
     fun getHealthCheck() {
         viewModelScope.launch {
+            _mainActivityState.update { currentState -> currentState.copy(isLoading = true) }
             JudilibreApi.retrofitService.healthcheck().onSuccess {
                 Log.e("success", "success" + it)
-                _mainActivityState.update { currentState -> currentState.copy(healthCheck = it) }
+                _mainActivityState.update { currentState -> currentState.copy(healthCheck = it.status) }
             }
             .onFailure {
                 Log.e("failure", it.toString())
             }
-
+            _mainActivityState.update { currentState -> currentState.copy(isLoading = false)}
         }
     }
 }

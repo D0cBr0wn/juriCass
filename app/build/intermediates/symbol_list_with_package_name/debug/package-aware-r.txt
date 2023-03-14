@@ -168,6 +168,7 @@ string default_popup_window_title
 string dropdown_menu
 string in_progress
 string indeterminate
+string loading
 string navigation_menu
 string not_selected
 string off
