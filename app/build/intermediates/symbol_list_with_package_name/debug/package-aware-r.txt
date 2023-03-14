@@ -118,10 +118,6 @@ id info
 id inspection_slot_table_set
 id is_pooling_container_tag
 id italic
-id item1
-id item2
-id item3
-id item4
 id line1
 id line3
 id normal
@@ -149,6 +145,7 @@ id text2
 id time
 id title
 id view_tree_lifecycle_owner
+id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id wrapped_composition_tag
@@ -160,8 +157,6 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-menu example_menu
-menu example_menu2
 mipmap ic_launcher
 mipmap ic_launcher_round
 string androidx_startup
@@ -173,6 +168,7 @@ string default_popup_window_title
 string dropdown_menu
 string in_progress
 string indeterminate
+string loading
 string navigation_menu
 string not_selected
 string off
@@ -184,6 +180,8 @@ string status_bar_notification_info_overflow
 string tab
 string template_percent
 style DialogWindowTheme
+style FloatingDialogTheme
+style FloatingDialogWindowTheme
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
 style TextAppearance_Compat_Notification_Line2

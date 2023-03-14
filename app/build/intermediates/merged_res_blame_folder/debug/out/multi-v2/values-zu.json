@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-35:/values-zu/values-zu.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-40:/values-zu/values-zu.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\ee0593255a549dcdf0ce481b028dbc04\\transformed\\ui-1.2.0\\res\\values-zu\\values-zu.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,282,387,492,582,664,770,863,946,1014,1082,1170,1258,1334,1404",
-                        "endColumns": "94,81,104,104,89,81,105,92,82,67,67,87,87,75,69,123",
-                        "endOffsets": "195,277,382,487,577,659,765,858,941,1009,1077,1165,1253,1329,1399,1523"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,282,387,492,582,664,770,863,946,1014,1082,1170,1258,1435,1505",
-                        "endColumns": "94,81,104,104,89,81,105,92,82,67,67,87,87,75,69,123",
-                        "endOffsets": "195,277,382,487,577,659,765,858,941,1009,1077,1165,1253,1329,1500,1624"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\af985f4411c5c3630bf0bb3742355ffd\\transformed\\core-1.7.0\\res\\values-zu\\values-zu.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\43eeba27e46c0f9e8270c8e6a59600bf\\transformed\\core-1.9.0\\res\\values-zu\\values-zu.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -32,9 +15,26 @@
                     "to": {
                         "startLines": "16",
                         "startColumns": "4",
-                        "startOffsets": "1334",
+                        "startOffsets": "1317",
                         "endColumns": "100",
-                        "endOffsets": "1430"
+                        "endOffsets": "1413"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\5956e0d7139b242db726f7868d50dfb1\\transformed\\ui-1.3.3\\res\\values-zu\\values-zu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,282,387,492,582,664,753,846,929,997,1065,1153,1241,1317,1387",
+                        "endColumns": "94,81,104,104,89,81,88,92,82,67,67,87,87,75,69,123",
+                        "endOffsets": "195,277,382,487,577,659,748,841,924,992,1060,1148,1236,1312,1382,1506"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,282,387,492,582,664,753,846,929,997,1065,1153,1241,1418,1488",
+                        "endColumns": "94,81,104,104,89,81,88,92,82,67,67,87,87,75,69,123",
+                        "endOffsets": "195,277,382,487,577,659,748,841,924,992,1060,1148,1236,1312,1483,1607"
                     }
                 }
             ]
