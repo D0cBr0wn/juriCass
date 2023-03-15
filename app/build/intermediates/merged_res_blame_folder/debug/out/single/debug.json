@@ -44,6 +44,10 @@
         "source": "com.example.juricass.app-main-44:/mipmap-hdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.example.juricass.app-merged_res-42:/drawable_baseline_error_24.xml.flat",
+        "source": "com.example.juricass.app-main-44:/drawable/baseline_error_24.xml"
+    },
+    {
         "merged": "com.example.juricass.app-merged_res-42:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.juricass.app-main-44:/mipmap-xxhdpi/ic_launcher_round.webp"
     },

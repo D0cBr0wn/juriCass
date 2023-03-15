@@ -19,6 +19,8 @@ import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.example.juricass.ui.common.Loader
+import com.example.juricass.ui.common.LoaderAndErrorDisplayer
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel = MainActivityViewModel()
@@ -58,24 +60,10 @@ fun Greeting(name: String, viewModel: MainActivityViewModel) {
         Text(text = "Check health !!")
     }
         Text(text = state.healthCheck)
+        LoaderAndErrorDisplayer(flag = state.isLoading, error = state.error)
     }
-    if(state.isLoading) Loader()
 
-}
 
-@Composable
-fun Loader(modifier: Modifier = Modifier) {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = modifier.fillMaxSize()
-    ) {
-        Text(text = stringResource(R.string.loading))
-//        Image(
-//            modifier = Modifier.size(200.dp),
-//            painter = painterResource(R.drawable.loading_img),
-//            contentDescription = stringResource(R.string.loading)
-//        )
-    }
 }
 
 

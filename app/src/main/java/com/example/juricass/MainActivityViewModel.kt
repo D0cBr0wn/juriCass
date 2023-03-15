@@ -18,11 +18,11 @@ class MainActivityViewModel(): ViewModel() {
         viewModelScope.launch {
             _mainActivityState.update { currentState -> currentState.copy(isLoading = true) }
             JudilibreApi.retrofitService.healthcheck().onSuccess {
-                Log.e("success", "success" + it)
                 _mainActivityState.update { currentState -> currentState.copy(healthCheck = it.status) }
             }
             .onFailure {
-                Log.e("failure", it.toString())
+                _mainActivityState.update { currentState -> currentState.copy(error = it.localizedMessage) }
+                Log.e("API Error", it.toString())
             }
             _mainActivityState.update { currentState -> currentState.copy(isLoading = false)}
         }

@@ -1,6 +1,6 @@
 package com.example.juricass.network
 
-import com.example.juricass.data.state.model.ApiHealth
+import com.example.juricass.data.model.ApiHealth
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -20,7 +20,7 @@ private val client = OkHttpClient.Builder()
         override fun intercept(chain: Interceptor.Chain): Response {
             val request = chain.request().newBuilder()
                 .addHeader("accept", "application/json")
-                .addHeader("KeyId", API_KEY)
+                //.addHeader("KeyId", API_KEY)
                 .build()
             return chain.proceed(request)
         }
