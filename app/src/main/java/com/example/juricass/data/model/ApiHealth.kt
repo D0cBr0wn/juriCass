@@ -1,4 +1,4 @@
-package com.example.juricass.data.state.model
+package com.example.juricass.data.model
 import kotlinx.serialization.Serializable
 
 @Serializable
