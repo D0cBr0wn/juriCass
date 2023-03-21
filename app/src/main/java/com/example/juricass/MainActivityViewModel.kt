@@ -27,4 +27,18 @@ class MainActivityViewModel(): ViewModel() {
             _mainActivityState.update { currentState -> currentState.copy(isLoading = false)}
         }
     }
+
+    fun getDecision(id: String) {
+        viewModelScope.launch {
+            _mainActivityState.update { currentState -> currentState.copy(isLoading = true) }
+            JudilibreApi.retrofitService.getDecision(id).onSuccess {
+                _mainActivityState.update { currentState -> currentState.copy(decision = it) }
+            }
+                .onFailure {
+                    _mainActivityState.update { currentState -> currentState.copy(error = it.localizedMessage) }
+                    Log.e("API Error", it.toString())
+                }
+            _mainActivityState.update { currentState -> currentState.copy(isLoading = false)}
+        }
+    }
 }

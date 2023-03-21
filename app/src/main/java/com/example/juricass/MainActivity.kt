@@ -59,7 +59,11 @@ fun Greeting(name: String, viewModel: MainActivityViewModel) {
     Button(onClick = { viewModel.getHealthCheck() }) {
         Text(text = "Check health !!")
     }
+        Button(onClick = { viewModel.getDecision("5fca7d162a251e6bf9c78514") }) {
+            Text(text = "getDecision")
+        }
         Text(text = state.healthCheck)
+        Text(text= state.decision.toString())
         LoaderAndErrorDisplayer(flag = state.isLoading, error = state.error)
     }
 
