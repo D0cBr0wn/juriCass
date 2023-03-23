@@ -1,6 +1,8 @@
 package com.example.juricass.data.model
+import com.example.juricass.data.helpers.DateFormatter
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.time.OffsetDateTime
 import java.util.*
 
 @Serializable
@@ -45,4 +47,13 @@ data class Decision (
     val timeline: List<Judgement>,
     val partial: Boolean,
     val legacy: Unknown?//TODO: find proper object
-)
+) {
+    val decisionDateAsObject : OffsetDateTime
+        get() {
+            return OffsetDateTime.parse(decisionDate)
+        }
+    val formattedDecisionDate : String
+        get() {
+            return decisionDateAsObject.format(DateFormatter.getFormatter())
+        }
+}
