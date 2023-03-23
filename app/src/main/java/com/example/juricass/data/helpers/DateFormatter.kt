@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeFormatterBuilder
 import java.util.*
 
-object DateFormatter {
+
     fun getFormatter(): DateTimeFormatter {
         val locale = Locale.getDefault()
         return DateTimeFormatterBuilder()
@@ -14,4 +14,3 @@ object DateFormatter {
             })
             .toFormatter(locale)
     }
-}
