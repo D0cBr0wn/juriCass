@@ -1,6 +1,9 @@
 package com.example.juricass.network
 
 import com.example.juricass.data.model.ApiHealth
+import com.example.juricass.data.model.Decision
+import com.example.juricass.data.model.SearchPage
+import com.example.juricass.data.model.SearchResult
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -9,7 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.http.GET
-
+import retrofit2.http.Query
 
 
 private const val BASE_URL = "https://sandbox-api.piste.gouv.fr/cassation/judilibre/v1.0/"//"https://api.piste.gouv.fr"
@@ -20,7 +23,7 @@ private val client = OkHttpClient.Builder()
         override fun intercept(chain: Interceptor.Chain): Response {
             val request = chain.request().newBuilder()
                 .addHeader("accept", "application/json")
-                //.addHeader("KeyId", API_KEY)
+                .addHeader("KeyId", API_KEY)
                 .build()
             return chain.proceed(request)
         }
@@ -37,6 +40,12 @@ private val retrofit = Retrofit.Builder()
 interface JudilibreApiService {
     @GET("healthcheck")
     suspend fun healthcheck(): Result<ApiHealth>
+
+    @GET("decision")
+    suspend fun getDecision(@Query("id") id: String): Result<Decision>
+
+    @GET("search")
+    suspend fun search(@Query("query") query: String): Result<SearchPage>
 }
 
 object JudilibreApi {
