@@ -1,6 +1,5 @@
 package com.example.juricass
 
-import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,9 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import com.example.juricass.ui.common.Loader
 import com.example.juricass.ui.common.LoaderAndErrorDisplayer
 
 class MainActivity : ComponentActivity() {
@@ -62,8 +58,13 @@ fun Greeting(name: String, viewModel: MainActivityViewModel) {
         Button(onClick = { viewModel.getDecision("5fca7d162a251e6bf9c78514") }) {
             Text(text = "getDecision")
         }
+
+        Button(onClick = { viewModel.search("propriété") }) {
+            Text(text = "search propriété")
+        }
         Text(text = state.healthCheck)
         Text(text= state.decision.toString())
+        Text(text= state.searchPage.toString())
         LoaderAndErrorDisplayer(flag = state.isLoading, error = state.error)
     }
 

@@ -2,6 +2,8 @@ package com.example.juricass.network
 
 import com.example.juricass.data.model.ApiHealth
 import com.example.juricass.data.model.Decision
+import com.example.juricass.data.model.SearchPage
+import com.example.juricass.data.model.SearchResult
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -41,6 +43,9 @@ interface JudilibreApiService {
 
     @GET("decision")
     suspend fun getDecision(@Query("id") id: String): Result<Decision>
+
+    @GET("search")
+    suspend fun search(@Query("query") query: String): Result<SearchPage>
 }
 
 object JudilibreApi {

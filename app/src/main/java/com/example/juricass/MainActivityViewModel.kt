@@ -41,4 +41,18 @@ class MainActivityViewModel(): ViewModel() {
             _mainActivityState.update { currentState -> currentState.copy(isLoading = false)}
         }
     }
+
+    fun search(query: String) {
+        viewModelScope.launch {
+            _mainActivityState.update { currentState -> currentState.copy(isLoading = true) }
+            JudilibreApi.retrofitService.search(query = query).onSuccess {
+                _mainActivityState.update { currentState -> currentState.copy(searchPage = it) }
+            }
+                .onFailure {
+                    _mainActivityState.update { currentState -> currentState.copy(error = it.localizedMessage) }
+                    Log.e("API Error", it.toString())
+                }
+            _mainActivityState.update { currentState -> currentState.copy(isLoading = false)}
+        }
+    }
 }
