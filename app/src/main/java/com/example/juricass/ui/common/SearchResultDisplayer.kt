@@ -3,7 +3,10 @@ package com.example.juricass.ui.common
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,17 +21,21 @@ import com.example.juricass.data.model.FileLink
 import com.example.juricass.data.model.SearchResult
 
 
+
 @Composable
 fun SearchResultDisplayer(result: SearchResult) {
-    Column() {
-        Row(modifier= Modifier.padding(8.dp)) {
+    val rowModifier = Modifier
+        .padding(8.dp)
+        .fillMaxWidth()
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Row(modifier= rowModifier) {
             HeaderText(text = result.decisionDate)
             DashSeparator()
             HeaderText(text = result.jurisdiction)
             DashSeparator()
             HeaderText(text = stringResource(id = R.string.pourvoi_number) + result.number)
         }
-        Row(modifier= Modifier.padding(8.dp)) {
+        Row(modifier= rowModifier) {
             for((index, publi) in result.publication.withIndex()) {
                 Text(text = publi)
                 if (index != result.publication.lastIndex) {
@@ -36,19 +43,19 @@ fun SearchResultDisplayer(result: SearchResult) {
                 }
             }
         }
-        Row(modifier= Modifier.padding(8.dp)) {
+        Row(modifier= rowModifier) {
             Text(text = result.chamber)
             if(!result.formation.isNullOrEmpty()) {
                 DashSeparator()
                 Text(text = result.formation)
             }
         }
-        Row(modifier= Modifier.padding(8.dp)) {
+        Row(modifier= rowModifier) {
             Text(text = result.solution)
         }
-        Row(modifier= Modifier.padding(8.dp)) {
+
             ThemesDisplayer(result.themes)
-        }
+
     }
 
 }
@@ -64,12 +71,14 @@ fun HeaderText(text: String = "") {
 }
 
 @Composable
-fun ThemesDisplayer(themes: List<String> = emptyList()) {
+fun ThemesDisplayer(themes: List<String>) {
     if(themes.isNotEmpty()) {
-        for(theme in themes) {
-
-            Text(text= theme, modifier = Modifier.padding(horizontal = 5.dp))
+        LazyRow(modifier = Modifier.padding(horizontal = 8.dp)) {
+            items(themes) { text ->
+                Pill(text = text)
+            }
         }
+
     }
 }
 
