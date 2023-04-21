@@ -35,6 +35,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
 string loading
+string no_result_found
 style Theme.JuriCass
 xml backup_rules
 xml data_extraction_rules

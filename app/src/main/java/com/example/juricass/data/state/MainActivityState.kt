@@ -6,8 +6,5 @@ import com.example.juricass.data.model.SearchResult
 
 data class MainActivityState(
     val isLoading: Boolean = false,
-    val healthCheck: String = "unset",
-    val decision: Decision? = null,
-    val searchPage: SearchPage? = null,
     val error: String? = null
 )

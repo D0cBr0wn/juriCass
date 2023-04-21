@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    def nav_version = "2.5.3"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.0'
@@ -70,6 +71,8 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
     // Kotlin serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
+    //navigation
+    implementation("androidx.navigation:navigation-compose:$nav_version")
 
 
 }

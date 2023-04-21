@@ -31,39 +31,7 @@ fun Loader(flag: Boolean) {
     }
 }
 
-@Composable
-fun ErrorDisplayer(error: String? = null) {
-    if(error != null) {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment  = Alignment.CenterVertically,
-            modifier = Modifier
-                .border(width = dimensionResource(id = R.dimen.border_width), color = colorResource(id = R.color.error))
-        ) {
-            val img =  painterResource(id = R.drawable.baseline_error_24)
-            Icon(
-                painter = img,
-                contentDescription = null,
-                tint = colorResource(id = R.color.error),
-                modifier = Modifier
-                    .padding(start = dimensionResource(id = R.dimen.app_small))
-            )
-            Text(
-                text = error.uppercase(),
-                color = colorResource(id = R.color.error),
-                fontSize = 18.sp,
-                modifier = Modifier
-                    .padding(
-                        top = dimensionResource(id = R.dimen.app_small),
-                        bottom = dimensionResource(id = R.dimen.app_small),
-                        end = dimensionResource(id = R.dimen.app_small),
-                        start = dimensionResource(R.dimen.border_width)
-                    )
-            )
-        }
 
-    }
-}
 
 @Composable
 fun LoaderAndErrorDisplayer(flag: Boolean = false, error: String?) {
@@ -85,14 +53,7 @@ fun LoaderAndErrorDisplayer(flag: Boolean = false, error: String?) {
 }
 
 
-@Preview(showBackground = true)
-@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-@Composable
-fun ErrorPreview() {
-    JuriCassTheme() {
-        ErrorDisplayer("error")
-    }
-}
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
