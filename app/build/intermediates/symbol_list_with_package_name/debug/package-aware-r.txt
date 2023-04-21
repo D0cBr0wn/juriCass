@@ -219,6 +219,7 @@ string no_result_found
 string not_selected
 string off
 string on
+string pourvoi_number
 string range_end
 string range_start
 string selected

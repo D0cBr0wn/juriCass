@@ -1,5 +1,6 @@
 package com.example.juricass.ui.homeScreen
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -11,10 +12,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.juricass.R
 import com.example.juricass.data.model.SearchResult
+import com.example.juricass.ui.common.SearchResultDisplayer
 import com.example.juricass.ui.common.SkeletonLoader
+import com.example.juricass.ui.theme.JuriCassTheme
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, onSearchClick: () -> Unit) {
@@ -45,21 +49,22 @@ fun HomeScreen(viewModel: HomeViewModel, onSearchClick: () -> Unit) {
     }
 }
 
-@Composable
-fun SearchResultDisplayer(result: SearchResult) {
-    Column() {
-        Row(modifier= Modifier.padding(8.dp)) {
-            Text(text = result.decisionDate)
-            Text(text = result.jurisdiction)
-        }
-        Row(modifier= Modifier.padding(8.dp)) {
-            for(publi in result.publication) {
-                Text(text = publi)
-            }
-        }
-        Row(modifier= Modifier.padding(8.dp)) {
-            Text(text = result.solution)
-        }
-    }
 
+
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
+@Composable
+fun HomeScreenPreviewDark() {
+    val viewModel = HomeViewModel()
+    JuriCassTheme() {
+        HomeScreen(viewModel = viewModel, onSearchClick = {})
+    }
+}
+
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, showSystemUi = true)
+@Composable
+fun HomeScreenPreview() {
+    val viewModel = HomeViewModel()
+    JuriCassTheme() {
+        HomeScreen(viewModel = viewModel, onSearchClick = {})
+    }
 }

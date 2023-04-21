@@ -19,8 +19,8 @@ class HomeViewModel(): ViewModel() {
     fun homeSearch() {
         viewModelScope.launch {
             _homeState.update { currentState -> currentState.copy(isLoading = true) }
-            val encodedQuery = URLEncoder.encode("propriété", "UTF-8") + "&resolve_references=true"
-            JudilibreApi.retrofitService.search(query = encodedQuery).onSuccess {
+            //val encodedQuery = URLEncoder.encode("propriété", "UTF-8") + "&resolve_references=true"
+            JudilibreApi.retrofitService.search(query = "propriété").onSuccess {
                 _homeState.update { currentState -> currentState.copy(searchPage = it) }
             }
                 .onFailure {
