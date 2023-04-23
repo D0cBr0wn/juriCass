@@ -41,6 +41,8 @@ attr uri
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
 color black
+color call_notification_answer_color
+color call_notification_decline_color
 color error
 color notification_action_color_filter
 color notification_icon_bg_color
@@ -95,6 +97,12 @@ dimen result_icon
 dimen visor_margin
 dimen visor_offset
 drawable baseline_error_24
+drawable ic_call_answer
+drawable ic_call_answer_low
+drawable ic_call_answer_video
+drawable ic_call_answer_video_low
+drawable ic_call_decline
+drawable ic_call_decline_low
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable notification_action_background
@@ -170,6 +178,7 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id pooling_container_listener_holder_tag
+id report_drawn
 id right_icon
 id right_side
 id tag_accessibility_actions
@@ -206,6 +215,13 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string androidx_startup
 string app_name
+string call_notification_answer_action
+string call_notification_answer_video_action
+string call_notification_decline_action
+string call_notification_hang_up_action
+string call_notification_incoming_text
+string call_notification_ongoing_text
+string call_notification_screening_text
 string close_drawer
 string close_sheet
 string default_error_message
@@ -224,6 +240,7 @@ string range_end
 string range_start
 string selected
 string status_bar_notification_info_overflow
+string switch_role
 string tab
 string template_percent
 style DialogWindowTheme

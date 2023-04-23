@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-46:/values-v16/values-v16.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-48:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\43eeba27e46c0f9e8270c8e6a59600bf\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\1a0aedab3482160f66133434afe98ca6\\transformed\\core-1.10.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

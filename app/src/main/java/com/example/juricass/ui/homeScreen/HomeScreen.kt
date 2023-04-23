@@ -19,10 +19,13 @@ import com.example.juricass.data.model.SearchResult
 import com.example.juricass.ui.common.SearchResultDisplayer
 import com.example.juricass.ui.common.SkeletonLoader
 import com.example.juricass.ui.theme.JuriCassTheme
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, onSearchClick: () -> Unit) {
     val state by viewModel.homeState.collectAsState()
+    val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement  = Arrangement.SpaceBetween,
@@ -30,19 +33,16 @@ fun HomeScreen(viewModel: HomeViewModel, onSearchClick: () -> Unit) {
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        Button(onClick = onSearchClick) {
-            Text(text = "Reload")
-        }
 
         if (state.searchPage === null || state.searchPage!!.results.isEmpty() && !state.isLoading) {
             Text(text = stringResource(id = R.string.no_result_found))
         } else {
-            LazyColumn {
-                item {
-                    SkeletonLoader(state.isLoading, error = state.error)
-                }
-                itemsIndexed(state.searchPage!!.results) { index, item ->
-                    SearchResultDisplayer(item)
+            SwipeRefresh(state = swipeRefreshState, onRefresh = viewModel::homeSearch) {
+                SkeletonLoader(state.isLoading, error = state.error)
+                LazyColumn {
+                    itemsIndexed(state.searchPage!!.results) { index, item ->
+                        if(!state.isLoading) SearchResultDisplayer(item)
+                    }
                 }
             }
         }
