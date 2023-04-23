@@ -1,5 +1,6 @@
 package com.example.juricass.ui.common
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +18,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.juricass.ui.theme.JuriCassTheme
 
 
 //@Composable
@@ -63,5 +66,14 @@ fun ErrorDisplayer(error: String? = null, reverse: Boolean = false) {
             )
         }
 
+    }
+}
+
+@Preview(showBackground = true)
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Composable
+fun ErrorPreview() {
+    JuriCassTheme() {
+        ErrorDisplayer("error")
     }
 }

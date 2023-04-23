@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
+import com.example.juricass.ui.JuriCassApp
 import com.example.juricass.ui.common.LoaderAndErrorDisplayer
 
 class MainActivity : ComponentActivity() {
@@ -30,46 +31,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android", mainViewModel)
+                    JuriCassApp()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, viewModel: MainActivityViewModel) {
-    val state by viewModel.mainActivityState.collectAsState()
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                top = 16.dp,
-                start = 4.dp,
-                end = 4.dp,
-                bottom = 16.dp
-            )
-    ) {
-    Text(text = "Hello $name!")
-    Button(onClick = { viewModel.getHealthCheck() }) {
-        Text(text = "Check health !!")
-    }
-        Button(onClick = { viewModel.getDecision("5fca7d162a251e6bf9c78514") }) {
-            Text(text = "getDecision")
-        }
-
-        Button(onClick = { viewModel.search("propriété") }) {
-            Text(text = "search propriété")
-        }
-        Text(text = state.healthCheck)
-        Text(text= state.decision.toString())
-        Text(text= state.searchPage.toString())
-        LoaderAndErrorDisplayer(flag = state.isLoading, error = state.error)
-    }
-
-
-}
 
 
 @Preview(showBackground = true, showSystemUi = true)
@@ -77,6 +45,6 @@ fun Greeting(name: String, viewModel: MainActivityViewModel) {
 fun DefaultPreview() {
     val mainViewModel = MainActivityViewModel()
     JuriCassTheme {
-        Greeting("Android", mainViewModel)
+        JuriCassApp()
     }
 }

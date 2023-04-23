@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-40:/values-bg/values-bg.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-46:/values-bg/values-bg.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\43eeba27e46c0f9e8270c8e6a59600bf\\transformed\\core-1.9.0\\res\\values-bg\\values-bg.xml",
