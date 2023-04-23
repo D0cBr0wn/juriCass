@@ -1,12 +1,14 @@
 package com.example.juricass.ui.common
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,45 +21,60 @@ import androidx.compose.ui.unit.sp
 import com.example.juricass.R
 import com.example.juricass.data.model.FileLink
 import com.example.juricass.data.model.SearchResult
+import com.example.juricass.ui.theme.JuriCassTheme
 
 
-
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SearchResultDisplayer(result: SearchResult) {
     val rowModifier = Modifier
         .padding(8.dp)
         .fillMaxWidth()
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Row(modifier= rowModifier) {
+    Surface(elevation =1.dp, modifier = Modifier.padding(vertical = 8.dp, horizontal = 2.dp)) {
+
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .padding(4.dp)) {
+        FlowRow(horizontalArrangement = Arrangement.Start, modifier= rowModifier) {
             HeaderText(text = result.decisionDate)
             DashSeparator()
             HeaderText(text = result.jurisdiction)
             DashSeparator()
             HeaderText(text = stringResource(id = R.string.pourvoi_number) + result.number)
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(MaterialTheme.colors.onSurface)
+            )
         }
-        Row(modifier= rowModifier) {
+        FlowRow(horizontalArrangement = Arrangement.Start, modifier= rowModifier) {
             for((index, publi) in result.publication.withIndex()) {
-                Text(text = publi)
+                Text(text = publi, fontWeight = FontWeight.Bold, color = MaterialTheme.colors.primaryVariant)
                 if (index != result.publication.lastIndex) {
                     DashSeparator()
                 }
             }
         }
-        Row(modifier= rowModifier) {
-            Text(text = result.chamber)
+        FlowRow(horizontalArrangement = Arrangement.Start, modifier= rowModifier) {
+            Text(text = result.chamber, fontWeight = FontWeight.Bold)
             if(!result.formation.isNullOrEmpty()) {
                 DashSeparator()
-                Text(text = result.formation)
+                Text(text = result.formation, fontWeight = FontWeight.Bold)
             }
         }
         Row(modifier= rowModifier) {
-            Text(text = result.solution)
+            Text(text = result.solution, fontWeight = FontWeight.Bold)
         }
-
-            ThemesDisplayer(result.themes)
-
+        if(result.summary?.isNotEmpty() == true) {
+            Row(modifier= rowModifier) {
+                Text(text = result.summary)
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        ThemesDisplayer(result.themes, isSystemInDarkTheme())
+        }
     }
-
 }
 
 @Composable
@@ -67,15 +84,23 @@ fun DashSeparator() {
 
 @Composable
 fun HeaderText(text: String = "") {
-    Text(text = text, fontSize = 15.sp, fontWeight = FontWeight.Bold, modifier = Modifier)
+    Text(text = text, fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier)
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun ThemesDisplayer(themes: List<String>) {
+fun ThemesDisplayer(themes: List<String>, outlined: Boolean = true) {
     if(themes.isNotEmpty()) {
-        LazyRow(modifier = Modifier.padding(horizontal = 8.dp)) {
-            items(themes) { text ->
-                Pill(text = text)
+        FlowRow(horizontalArrangement = Arrangement.Start ) {
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(MaterialTheme.colors.secondary)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            for(theme in themes) {
+                Pill(theme, outlined)
             }
         }
 

@@ -9,6 +9,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
@@ -23,7 +24,7 @@ import com.example.juricass.ui.theme.JuriCassTheme
 
 
 @Composable
-fun SkeletonLoader(isLoading: Boolean = false, rows: Int = 5, error: String? = null) {
+fun SkeletonLoader(isLoading: Boolean = false, rows: Int = 10, error: String? = null) {
     if(isLoading || error !== null) {
         Column(
             verticalArrangement = if(error === null) Arrangement.Top else Arrangement.Center,
@@ -44,25 +45,29 @@ fun SkeletonLoader(isLoading: Boolean = false, rows: Int = 5, error: String? = n
 
 @Composable
 fun SkeletonRow() {
-    Row(modifier= Modifier.padding(8.dp)) {
-        Box(
-            modifier = Modifier
-                .size(100.dp)
-                .shimmerEffect()
-        )
-        Spacer(modifier = Modifier.width(16.dp))
-        Column(modifier = Modifier.weight(1f)) {
-            Box(modifier = Modifier
-                .fillMaxWidth()
-                .height(20.dp)
-                .shimmerEffect()
+    Surface(elevation =1.dp, modifier = Modifier.padding(4.dp)) {
+        Row(modifier = Modifier.padding(8.dp)) {
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .shimmerEffect()
             )
-            Spacer(modifier = Modifier.height(16.dp))
-            Box(modifier = Modifier
-                .fillMaxWidth(0.7f)
-                .height(20.dp)
-                .shimmerEffect()
-            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(20.dp)
+                        .shimmerEffect()
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth(0.7f)
+                        .height(20.dp)
+                        .shimmerEffect()
+                )
+            }
         }
     }
 }
