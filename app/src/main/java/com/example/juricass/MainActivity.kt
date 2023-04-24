@@ -29,15 +29,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Scaffold(
-                        topBar = { TopBar() },
-                        modifier = Modifier,
-                        content = { padding -> Column(modifier = Modifier.padding(padding)) {
-                            Box(modifier = Modifier.padding(2.dp)) {
-                                JuriCassApp()
-                            }
-                        } }
-                    )
+
+                    JuriCassApp()
+
+
                 }
             }
         }
