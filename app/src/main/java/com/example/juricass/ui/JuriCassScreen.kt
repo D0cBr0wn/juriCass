@@ -28,30 +28,31 @@ enum class JuriCassRoutes() {
 fun JuriCassApp() {
     val navController = rememberNavController()
     val homeViewModel = HomeViewModel()
+    homeViewModel.homeSearch()
+    
+    NavHost(
+        navController = navController,
+        startDestination = JuriCassRoutes.HOME.name,
+        modifier = Modifier
+    ) {
+        composable(route = JuriCassRoutes.HOME.name) {
 
-                NavHost(
-                    navController = navController,
-                    startDestination = JuriCassRoutes.HOME.name,
-                    modifier = Modifier
-                ) {
-                    composable(route = JuriCassRoutes.HOME.name) {
-                        homeViewModel.homeSearch()
-                        HomeScreen(
-                            homeViewModel,
-                            onSettingsClick = { navController.navigate(JuriCassRoutes.SETTINGS.name) },
-                            onBookmarksClick = { navController.navigate(JuriCassRoutes.BOOKMARKS.name) }
-                        )
-                    }
-                    composable(route = JuriCassRoutes.SETTINGS.name) {
-                        SettingsScreen(
-                            onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
-                        )
-                    }
-                    composable(route = JuriCassRoutes.BOOKMARKS.name) {
-                        BookMarksScreen(
-                            onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
-                        )
-                    }
-                }
-            }
+            HomeScreen(
+                homeViewModel,
+                onSettingsClick = { navController.navigate(JuriCassRoutes.SETTINGS.name) },
+                onBookmarksClick = { navController.navigate(JuriCassRoutes.BOOKMARKS.name) }
+            )
+        }
+        composable(route = JuriCassRoutes.SETTINGS.name) {
+            SettingsScreen(
+                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+            )
+        }
+        composable(route = JuriCassRoutes.BOOKMARKS.name) {
+            BookMarksScreen(
+                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+            )
+        }
+    }
+}
 
