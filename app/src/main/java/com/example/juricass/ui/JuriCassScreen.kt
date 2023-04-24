@@ -28,8 +28,8 @@ enum class JuriCassRoutes() {
 fun JuriCassApp() {
     val navController = rememberNavController()
     val homeViewModel = HomeViewModel()
-    homeViewModel.homeSearch()
-    
+    homeViewModel.homeSearch()//TODO: check if there is another way to call the pethod at page opening
+
     NavHost(
         navController = navController,
         startDestination = JuriCassRoutes.HOME.name,
