@@ -14,8 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
 import com.example.juricass.ui.JuriCassApp
-import com.example.juricass.ui.common.LoaderAndErrorDisplayer
-import com.example.juricass.ui.common.TopBar
+
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel = MainActivityViewModel()

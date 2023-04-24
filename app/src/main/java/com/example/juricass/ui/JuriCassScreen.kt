@@ -12,40 +12,47 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.juricass.ui.common.TopBar
+import com.example.juricass.ui.bookmarksScreen.BookMarksScreen
 import com.example.juricass.ui.homeScreen.HomeScreen
 import com.example.juricass.ui.homeScreen.HomeViewModel
+import com.example.juricass.ui.settingsScreen.SettingsScreen
 
 enum class JuriCassRoutes() {
     HOME,
+    SETTINGS,
+    BOOKMARKS,
 }
+
 
 @Composable
 fun JuriCassApp() {
     val navController = rememberNavController()
     val homeViewModel = HomeViewModel()
+    homeViewModel.homeSearch()//TODO: check if there is another way to call the pethod at page opening
 
-    Scaffold(
-        topBar = { TopBar(navController) },
-        modifier = Modifier,
-        content = { padding -> Column(modifier = Modifier.padding(padding)) {
-            Box(modifier = Modifier.padding(2.dp)) {
+    NavHost(
+        navController = navController,
+        startDestination = JuriCassRoutes.HOME.name,
+        modifier = Modifier
+    ) {
+        composable(route = JuriCassRoutes.HOME.name) {
 
-
-                NavHost(
-                    navController = navController,
-                    startDestination = JuriCassRoutes.HOME.name,
-                    modifier = Modifier
-                ) {
-                    composable(route = JuriCassRoutes.HOME.name) {
-                        homeViewModel.homeSearch()
-                        HomeScreen(
-                            homeViewModel,
-                            onSearchClick = { homeViewModel.homeSearch() }
-                        )
-                    }
-                }
-            }
+            HomeScreen(
+                homeViewModel,
+                onSettingsClick = { navController.navigate(JuriCassRoutes.SETTINGS.name) },
+                onBookmarksClick = { navController.navigate(JuriCassRoutes.BOOKMARKS.name) }
+            )
         }
-     })
+        composable(route = JuriCassRoutes.SETTINGS.name) {
+            SettingsScreen(
+                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+            )
+        }
+        composable(route = JuriCassRoutes.BOOKMARKS.name) {
+            BookMarksScreen(
+                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+            )
+        }
+    }
 }
+
