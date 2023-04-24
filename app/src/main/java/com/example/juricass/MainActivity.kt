@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -18,6 +15,7 @@ import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
 import com.example.juricass.ui.JuriCassApp
 import com.example.juricass.ui.common.LoaderAndErrorDisplayer
+import com.example.juricass.ui.common.TopBar
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel = MainActivityViewModel()
@@ -31,7 +29,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+
                     JuriCassApp()
+
+
                 }
             }
         }
