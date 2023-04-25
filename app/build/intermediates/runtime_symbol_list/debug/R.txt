@@ -237,11 +237,12 @@ int string on 0x7f090015
 int string pourvoi_number 0x7f090016
 int string range_end 0x7f090017
 int string range_start 0x7f090018
-int string selected 0x7f090019
-int string status_bar_notification_info_overflow 0x7f09001a
-int string switch_role 0x7f09001b
-int string tab 0x7f09001c
-int string template_percent 0x7f09001d
+int string read 0x7f090019
+int string selected 0x7f09001a
+int string status_bar_notification_info_overflow 0x7f09001b
+int string switch_role 0x7f09001c
+int string tab 0x7f09001d
+int string template_percent 0x7f09001e
 int style DialogWindowTheme 0x7f0a0000
 int style FloatingDialogTheme 0x7f0a0001
 int style FloatingDialogWindowTheme 0x7f0a0002

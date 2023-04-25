@@ -15,7 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.juricass.R
+import com.example.juricass.data.model.Decision
 import com.example.juricass.data.model.SearchResult
 import com.example.juricass.ui.common.HomeTopBar
 import com.example.juricass.ui.common.SearchResultDisplayer
@@ -25,11 +28,12 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel, onSettingsClick:() -> Unit, onBookmarksClick:() -> Unit) {
+fun HomeScreen(viewModel: HomeViewModel, navController: NavController) {
+
     val state by viewModel.homeState.collectAsState()
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
     Scaffold(
-        topBar = { HomeTopBar(onSettingsClick = onSettingsClick, onBookmarksClick = onBookmarksClick) },
+        topBar = { HomeTopBar(navController) },
         modifier = Modifier,
         content = { padding -> Column(modifier = Modifier.padding(padding)) {
             Column(
@@ -47,7 +51,7 @@ fun HomeScreen(viewModel: HomeViewModel, onSettingsClick:() -> Unit, onBookmarks
                         SkeletonLoader(state.isLoading, error = state.error)
                         LazyColumn {
                             itemsIndexed(state.searchPage!!.results) { index, item ->
-                                if (!state.isLoading) SearchResultDisplayer(item)
+                                if (!state.isLoading) SearchResultDisplayer(item, navController)
                             }
                         }
                     }
@@ -64,8 +68,9 @@ fun HomeScreen(viewModel: HomeViewModel, onSettingsClick:() -> Unit, onBookmarks
 @Composable
 fun HomeScreenPreviewDark() {
     val viewModel = HomeViewModel()
+    val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(viewModel = viewModel, onSettingsClick = {}, onBookmarksClick ={} )
+        HomeScreen(viewModel = viewModel, navController )
     }
 }
 
@@ -73,7 +78,8 @@ fun HomeScreenPreviewDark() {
 @Composable
 fun HomeScreenPreview() {
     val viewModel = HomeViewModel()
+    val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(viewModel = viewModel, onSettingsClick = {}, onBookmarksClick ={})
+        HomeScreen(viewModel = viewModel, navController)
     }
 }

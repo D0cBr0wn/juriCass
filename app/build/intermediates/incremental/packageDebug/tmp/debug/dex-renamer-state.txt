@@ -1,4 +1,4 @@
-#Mon Apr 24 18:26:34 CEST 2023
+#Tue Apr 25 17:01:46 CEST 2023
 path.4=15/classes.dex
 path.3=13/classes.dex
 path.2=11/classes.dex
@@ -8,6 +8,7 @@ renamed.8=classes9.dex
 path.8=7/classes.dex
 path.7=6/classes.dex
 path.6=4/classes.dex
+renamed.12=classes13.dex
 path.5=2/classes.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
@@ -18,6 +19,7 @@ base.2=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\merg
 base.1=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.0=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
+path.12=14/classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 path.10=classes2.dex
@@ -33,5 +35,6 @@ renamed.5=classes6.dex
 base.6=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
 renamed.4=classes5.dex
 base.5=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.12=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
 base.11=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
 base.10=D\:\\Android_perso\\juriCass\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex

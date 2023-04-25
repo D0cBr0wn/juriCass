@@ -32,6 +32,7 @@
     <string name="loading">loading</string>
     <string name="no_result_found">No result found</string>
     <string name="pourvoi_number">Pourvoi n°</string>
+    <string name="read">Read</string>
     <style name="Theme.JuriCass" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>

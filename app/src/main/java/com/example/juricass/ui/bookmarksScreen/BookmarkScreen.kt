@@ -6,12 +6,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.example.juricass.ui.common.GenericTopBar
 
 @Composable
-fun BookMarksScreen(onGoHomeClick:() -> Unit) {
+fun BookMarksScreen(navController: NavController) {
     Scaffold(
-        topBar = { GenericTopBar(onGoHomeClick = onGoHomeClick) },
+        topBar = { GenericTopBar(navController) },
         modifier = Modifier,
         content = { padding -> Column(modifier = Modifier.padding(padding)) {
             Column(

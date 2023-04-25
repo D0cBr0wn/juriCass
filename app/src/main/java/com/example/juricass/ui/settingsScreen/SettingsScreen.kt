@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
 import com.example.juricass.R
 import com.example.juricass.ui.common.GenericTopBar
 import com.example.juricass.ui.common.HomeTopBar
@@ -17,9 +18,9 @@ import com.example.juricass.ui.common.SkeletonLoader
 import com.google.accompanist.swiperefresh.SwipeRefresh
 
 @Composable
-fun SettingsScreen(onGoHomeClick:() -> Unit) {
+fun SettingsScreen(navController: NavController) {
     Scaffold(
-        topBar = { GenericTopBar(onGoHomeClick = onGoHomeClick) },
+        topBar = { GenericTopBar(navController) },
         modifier = Modifier,
         content = { padding -> Column(modifier = Modifier.padding(padding)) {
             Column(

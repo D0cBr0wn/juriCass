@@ -9,17 +9,15 @@ import java.util.*
 data class Decision (
     val id: String,
     val source: String,
-    val zones: Zones,
+    val zones: Zones? = null,
     val text: String,
     @SerialName(value = "text_highlight")
     val textHighlight: String? = null,
     val nac: String?,
     @SerialName(value = "update_date")
     val updateDate: String,//TODO: handle date properly
-    @SerialName(value = "update_datetime")
-    val updateDateTime: String,//TODO: handle date properly
     val visa: List<TextLink>,
-    val rapprochements: List<DecisionLink>,
+    val rapprochements: List<Rapprochement>,
     @SerialName(value = "to_be_deleted")
     val toBeDeleted: Boolean = false,
     val jurisdiction: String,
@@ -27,12 +25,10 @@ data class Decision (
     val number: String,
     val numbers: List<String>,
     val ecli: String,
-    val formation: String,
+    val formation: String? = null,
     val publication: List<String>,
     @SerialName(value = "decision_date")
     val decisionDate: String,//TODO: handle date properly
-    @SerialName(value = "decision_datetime")
-    val decisionDateTime: String,//TODO: handle date properly
     val type: String,
     val solution: String,
     @SerialName(value = "solution_alt")
@@ -44,9 +40,9 @@ data class Decision (
     val portalis: String?,
     val forward: String?,
     val contested: Judgement?,
-    val timeline: List<Judgement>,
+    val timeline: List<Judgement>?,
     val partial: Boolean,
-    val legacy: Unknown?//TODO: find proper object
+    val legacy: Unknown?,//TODO: find proper object
 ) {
     val decisionDateAsObject : OffsetDateTime
         get() {

@@ -8,9 +8,9 @@ data class Judgement (
     val id: String? = null,
     val date: String,//TODO: handle date properly
     val title: String,
-    val jurisdiction: String,
-    val chamber: String,
-    val solution: String,
-    val number: String,
+    val jurisdiction: String? = null,
+    val chamber: String? = null,
+    val solution: String? = null,
+    val number: String? = null,
     val url: String? = null,
 )

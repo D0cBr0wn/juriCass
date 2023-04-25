@@ -9,5 +9,5 @@ data class DecisionLink(
     val url: String,
     val description: String,
     val theme: List<String>,
-    val number: String
+    val number: String,
 )

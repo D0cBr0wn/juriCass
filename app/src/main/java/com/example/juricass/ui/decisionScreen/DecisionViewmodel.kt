@@ -20,6 +20,7 @@ class DecisionViewmodel(): ViewModel() {
             _decisionState.update { currentState -> currentState.copy(isLoading = true)}
             JudilibreApi.retrofitService.getDecision(id = id).onSuccess {
                 _decisionState.update { currentState -> currentState.copy(decision = it) }
+                Log.e("decision", _decisionState.value.decision.toString())
             }
             .onFailure {
                 _decisionState.update { currentState -> currentState.copy(error = it.localizedMessage) }

@@ -9,11 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.juricass.ui.bookmarksScreen.BookMarksScreen
 import com.example.juricass.ui.decisionScreen.DecisionScreen
+import com.example.juricass.ui.decisionScreen.DecisionViewmodel
 import com.example.juricass.ui.homeScreen.HomeScreen
 import com.example.juricass.ui.homeScreen.HomeViewModel
 import com.example.juricass.ui.settingsScreen.SettingsScreen
@@ -30,7 +33,7 @@ enum class JuriCassRoutes() {
 fun JuriCassApp() {
     val navController = rememberNavController()
     val homeViewModel = HomeViewModel()
-    homeViewModel.homeSearch()//TODO: check if there is another way to call the method at page opening
+    val decisionViewModel = DecisionViewmodel()
 
     NavHost(
         navController = navController,
@@ -40,23 +43,27 @@ fun JuriCassApp() {
         composable(route = JuriCassRoutes.HOME.name) {
             HomeScreen(
                 homeViewModel,
-                onSettingsClick = { navController.navigate(JuriCassRoutes.SETTINGS.name) },
-                onBookmarksClick = { navController.navigate(JuriCassRoutes.BOOKMARKS.name) }
+                navController,
             )
         }
         composable(route = JuriCassRoutes.SETTINGS.name) {
             SettingsScreen(
-                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+                navController
             )
         }
         composable(route = JuriCassRoutes.BOOKMARKS.name) {
             BookMarksScreen(
-                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+                navController
             )
         }
-        composable(route = JuriCassRoutes.DECISION.name) {
+        composable(route = JuriCassRoutes.DECISION.name + "/{decisionId}",
+            arguments = listOf(navArgument("decisionId") { type = NavType.StringType })
+        ) { navBackStackEntry ->
+            val decisionId = navBackStackEntry.arguments?.getString("decisionId")
             DecisionScreen(
-                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+                viewModel = DecisionViewmodel(),
+                navController = navController,
+                decisionId = decisionId
             )
         }
     }

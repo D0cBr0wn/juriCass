@@ -16,6 +16,10 @@ class HomeViewModel(): ViewModel() {
     private val _homeState = MutableStateFlow(HomeState())
     val homeState: StateFlow<HomeState> = _homeState.asStateFlow()
 
+    init {
+        homeSearch()
+    }
+
     fun homeSearch() {
         viewModelScope.launch {
             _homeState.update { currentState -> currentState.copy(isLoading = true) }

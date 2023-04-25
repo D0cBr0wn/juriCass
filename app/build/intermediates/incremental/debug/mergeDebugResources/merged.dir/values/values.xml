@@ -150,6 +150,7 @@
     <string name="pourvoi_number">Pourvoi n°</string>
     <string name="range_end">"Range end"</string>
     <string name="range_start">"Range start"</string>
+    <string name="read">Read</string>
     <string name="selected">Selected</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="switch_role">Switch</string>
