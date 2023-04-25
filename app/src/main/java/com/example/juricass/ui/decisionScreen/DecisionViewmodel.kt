@@ -1,6 +1,7 @@
 package com.example.juricass.ui.decisionScreen
 
 import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.juricass.data.state.DecisionState
@@ -11,16 +12,19 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class DecisionViewmodel(): ViewModel() {
+class DecisionViewmodel(decisionId: String?): ViewModel() {
     private val _decisionState = MutableStateFlow(DecisionState())
     val decisionState: StateFlow<DecisionState> = _decisionState.asStateFlow()
+    //private val decisionId: String = checkNotNull(savedStateHandle["decisionId"])
 
+    init {
+        if(decisionId != null) getDecision(decisionId)
+    }
     fun getDecision(id: String) {
         viewModelScope.launch {
             _decisionState.update { currentState -> currentState.copy(isLoading = true)}
             JudilibreApi.retrofitService.getDecision(id = id).onSuccess {
                 _decisionState.update { currentState -> currentState.copy(decision = it) }
-                Log.e("decision", _decisionState.value.decision.toString())
             }
             .onFailure {
                 _decisionState.update { currentState -> currentState.copy(error = it.localizedMessage) }

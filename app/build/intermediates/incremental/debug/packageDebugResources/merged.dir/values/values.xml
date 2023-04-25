@@ -30,6 +30,7 @@
     <dimen name="visor_offset">100dp</dimen>
     <string name="app_name">JuriCass</string>
     <string name="loading">loading</string>
+    <string name="noDecisionFound">No decision found</string>
     <string name="no_result_found">No result found</string>
     <string name="pourvoi_number">Pourvoi n°</string>
     <string name="read">Read</string>

@@ -7,19 +7,15 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.example.juricass.ui.common.GenericTopBar
 import androidx.navigation.NavController
+import com.example.juricass.R
 import kotlinx.serialization.json.JsonNull.content
 
 @Composable
-fun DecisionScreen(viewModel: DecisionViewmodel, navController: NavController, decisionId: String?) {
+fun DecisionScreen(viewModel: DecisionViewmodel, navController: NavController) {
     val state by viewModel.decisionState.collectAsState()
-    val currentDecisionId = remember { mutableStateOf("") }
-
-    if (decisionId != currentDecisionId.value && decisionId !== null) {
-        currentDecisionId.value = decisionId
-        viewModel.getDecision(decisionId)
-    }
 
     Scaffold(
         topBar = { GenericTopBar(navController) },
@@ -32,8 +28,11 @@ fun DecisionScreen(viewModel: DecisionViewmodel, navController: NavController, d
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                Text(state.decision.toString())
-                Log.e("compo", state.decision.toString())
+                if(state.decision != null) {
+                    DecisionDisplayer(decision = state.decision!!)
+                } else {
+                    Text(text= stringResource(R.string.noDecisionFound))
+                }
             }
         }
         }

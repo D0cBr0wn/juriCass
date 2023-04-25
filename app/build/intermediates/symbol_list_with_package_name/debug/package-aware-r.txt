@@ -231,6 +231,7 @@ string in_progress
 string indeterminate
 string loading
 string navigation_menu
+string noDecisionFound
 string no_result_found
 string not_selected
 string off
