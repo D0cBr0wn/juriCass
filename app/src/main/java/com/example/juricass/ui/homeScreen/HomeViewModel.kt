@@ -19,14 +19,13 @@ class HomeViewModel(): ViewModel() {
     fun homeSearch() {
         viewModelScope.launch {
             _homeState.update { currentState -> currentState.copy(isLoading = true) }
-            //val encodedQuery = URLEncoder.encode("propriété", "UTF-8") + "&resolve_references=true"
             JudilibreApi.retrofitService.search(query = "propriété").onSuccess {
                 _homeState.update { currentState -> currentState.copy(searchPage = it) }
             }
-                .onFailure {
-                    _homeState.update { currentState -> currentState.copy(error = it.localizedMessage) }
-                    Log.e("API Error", it.toString())
-                }
+            .onFailure {
+                _homeState.update { currentState -> currentState.copy(error = it.localizedMessage) }
+                Log.e("API Error", it.toString())
+            }
             _homeState.update { currentState -> currentState.copy(isLoading = false)}
         }
     }

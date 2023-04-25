@@ -1,23 +1,18 @@
-package com.example.juricass.ui.settingsScreen
+package com.example.juricass.ui.decisionScreen
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import com.example.juricass.R
 import com.example.juricass.ui.common.GenericTopBar
-import com.example.juricass.ui.common.HomeTopBar
-import com.example.juricass.ui.common.SearchResultDisplayer
-import com.example.juricass.ui.common.SkeletonLoader
-import com.google.accompanist.swiperefresh.SwipeRefresh
+import androidx.compose.runtime.getValue
 
 @Composable
-fun SettingsScreen(onGoHomeClick:() -> Unit) {
+fun DecisionScreen(viewModel: DecisionViewmodel, onGoHomeClick:() -> Unit) {
+    val state by viewModel.decisionState.collectAsState()
     Scaffold(
         topBar = { GenericTopBar(onGoHomeClick = onGoHomeClick) },
         modifier = Modifier,
@@ -29,9 +24,9 @@ fun SettingsScreen(onGoHomeClick:() -> Unit) {
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                Text("Settings")
-                }
+                Text(state.decision.toString())
             }
+        }
         }
     )
 }

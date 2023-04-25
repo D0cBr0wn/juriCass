@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.juricass.ui.bookmarksScreen.BookMarksScreen
+import com.example.juricass.ui.decisionScreen.DecisionScreen
 import com.example.juricass.ui.homeScreen.HomeScreen
 import com.example.juricass.ui.homeScreen.HomeViewModel
 import com.example.juricass.ui.settingsScreen.SettingsScreen
@@ -21,6 +22,7 @@ enum class JuriCassRoutes() {
     HOME,
     SETTINGS,
     BOOKMARKS,
+    DECISION
 }
 
 
@@ -28,7 +30,7 @@ enum class JuriCassRoutes() {
 fun JuriCassApp() {
     val navController = rememberNavController()
     val homeViewModel = HomeViewModel()
-    homeViewModel.homeSearch()//TODO: check if there is another way to call the pethod at page opening
+    homeViewModel.homeSearch()//TODO: check if there is another way to call the method at page opening
 
     NavHost(
         navController = navController,
@@ -36,7 +38,6 @@ fun JuriCassApp() {
         modifier = Modifier
     ) {
         composable(route = JuriCassRoutes.HOME.name) {
-
             HomeScreen(
                 homeViewModel,
                 onSettingsClick = { navController.navigate(JuriCassRoutes.SETTINGS.name) },
@@ -50,6 +51,11 @@ fun JuriCassApp() {
         }
         composable(route = JuriCassRoutes.BOOKMARKS.name) {
             BookMarksScreen(
+                onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
+            )
+        }
+        composable(route = JuriCassRoutes.DECISION.name) {
+            DecisionScreen(
                 onGoHomeClick = { navController.navigate(JuriCassRoutes.HOME.name) }
             )
         }

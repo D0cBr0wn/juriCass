@@ -49,6 +49,12 @@ interface JudilibreApiService {
         @Query("query") query: String,
         @Query("resolve_references") resolve_references: Boolean = true
     ): Result<SearchPage>
+
+    @GET("decision")
+    suspend fun getDecision(
+        @Query("id") id: String,
+        @Query("resolve_references") resolve_references: Boolean = true
+    ): Result<Decision>
 }
 
 object JudilibreApi {
