@@ -31,6 +31,7 @@ fun HomeTopBar(navController: NavController) {
 
     TopAppBar(
         title = { Text("JuriCass") },
+        backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
             IconButton(onClick = { expanded = true }) {
                 Icon(Icons.Filled.Menu, contentDescription = null)
@@ -62,6 +63,7 @@ fun HomeTopBar(navController: NavController) {
 fun GenericTopBar(navController: NavController) {
     TopAppBar(
         title = { Text("JuriCass") },
+        backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
             IconButton(onClick = { navController.navigate(JuriCassRoutes.HOME.name) }) {
                 Icon(
