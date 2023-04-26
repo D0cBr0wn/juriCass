@@ -19,6 +19,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.juricass.ui.theme.JuriCassTheme
 
@@ -67,6 +68,11 @@ fun ErrorDisplayer(error: String? = null, reverse: Boolean = false) {
         }
 
     }
+}
+
+@Composable
+fun DashSeparator() {
+    Text(text = "-", modifier = Modifier.padding(horizontal = 5.dp))
 }
 
 @Preview(showBackground = true)

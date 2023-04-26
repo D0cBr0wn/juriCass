@@ -41,9 +41,6 @@ interface JudilibreApiService {
     @GET("healthcheck")
     suspend fun healthcheck(): Result<ApiHealth>
 
-    @GET("decision")
-    suspend fun getDecision(@Query("id") id: String): Result<Decision>
-
     @GET("search")
     suspend fun search(
         @Query("query") query: String,

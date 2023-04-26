@@ -12,17 +12,16 @@ import com.example.juricass.R
 
 @Composable
 fun CircleLoader(isLoading: Boolean = false, error: String? = null) {
-    Column(
-        //verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(id = R.dimen.app_xsmall))
-    ) {
-        if(error == null) {
-            LoaderCircle(isLoading)
-        } else {
-            ErrorDisplayer(error)
+    if(isLoading || error != null) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            if (error == null) {
+                LoaderCircle(true)
+            } else {
+                ErrorDisplayer(error)
+            }
         }
     }
 }

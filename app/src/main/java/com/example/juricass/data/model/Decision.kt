@@ -2,14 +2,16 @@ package com.example.juricass.data.model
 import com.example.juricass.data.helpers.getFormatter
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
 import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 @Serializable
 data class Decision (
     val id: String,
     val source: String,
-    val zones: Zones? = null,
+    val zones: Map<String, List<ZoneSegment>>? = null,
     val text: String,
     @SerialName(value = "text_highlight")
     val textHighlight: String? = null,
@@ -24,7 +26,7 @@ data class Decision (
     val chamber: String,
     val number: String,
     val numbers: List<String>,
-    val ecli: String,
+    val ecli: String?,
     val formation: String? = null,
     val publication: List<String>,
     @SerialName(value = "decision_date")
@@ -50,6 +52,8 @@ data class Decision (
         }
     val formattedDecisionDate : String
         get() {
-            return decisionDateAsObject.format(getFormatter())
+            val date = LocalDate.parse(decisionDate)
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            return date.format(formatter)
         }
 }

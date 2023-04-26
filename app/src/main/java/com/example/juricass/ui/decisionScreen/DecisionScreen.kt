@@ -11,30 +11,17 @@ import androidx.compose.ui.res.stringResource
 import com.example.juricass.ui.common.GenericTopBar
 import androidx.navigation.NavController
 import com.example.juricass.R
+import com.example.juricass.ui.common.CircleLoader
+import com.example.juricass.ui.common.ScreenBase
 import kotlinx.serialization.json.JsonNull.content
 
 @Composable
 fun DecisionScreen(viewModel: DecisionViewmodel, navController: NavController) {
     val state by viewModel.decisionState.collectAsState()
-
-    Scaffold(
-        topBar = { GenericTopBar(navController) },
-        modifier = Modifier,
-        content = { padding -> Column(modifier = Modifier.padding(padding)) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement  = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-            ) {
-                if(state.decision != null) {
-                    DecisionDisplayer(decision = state.decision!!)
-                } else {
-                    Text(text= stringResource(R.string.noDecisionFound))
-                }
-            }
-        }
-        }
-    )
+    ScreenBase(navController = navController) {
+        CircleLoader(state.isLoading, state.error)
+        if (!state.isLoading) {
+            DecisionDisplayer(decision = state.decision)
+       }
+    }
 }

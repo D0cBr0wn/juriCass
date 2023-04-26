@@ -40,7 +40,7 @@ fun SearchResultDisplayer(result: SearchResult, navController: NavController) {
         .fillMaxWidth()
         .padding(4.dp)) {
         FlowRow(horizontalArrangement = Arrangement.Start, modifier= rowModifier) {
-            HeaderText(text = result.decisionDate)
+            HeaderText(text = result.formattedDecisionDate)
             DashSeparator()
             HeaderText(text = result.jurisdiction)
             DashSeparator()
@@ -87,10 +87,7 @@ fun SearchResultDisplayer(result: SearchResult, navController: NavController) {
     }
 }
 
-@Composable
-fun DashSeparator() {
-    Text(text = "-", modifier = Modifier.padding(horizontal = 5.dp))
-}
+
 
 @Composable
 fun HeaderText(text: String = "") {

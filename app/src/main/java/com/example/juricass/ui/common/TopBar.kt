@@ -14,12 +14,14 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.juricass.R
 import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.theme.JuriCassTheme
 
@@ -30,11 +32,11 @@ fun HomeTopBar(navController: NavController) {
     val menuItems = listOf("Bookmarks", "Settings")
 
     TopAppBar(
-        title = { Text("JuriCass") },
+        title = { Text(stringResource(R.string.appName)) },
         backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
             IconButton(onClick = { expanded = true }) {
-                Icon(Icons.Filled.Menu, contentDescription = null)
+                Icon(Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
             }
 
             DropdownMenu(
@@ -62,13 +64,13 @@ fun HomeTopBar(navController: NavController) {
 @Composable
 fun GenericTopBar(navController: NavController) {
     TopAppBar(
-        title = { Text("JuriCass") },
+        title = { Text(stringResource(R.string.appName)) },
         backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
             IconButton(onClick = { navController.navigate(JuriCassRoutes.HOME.name) }) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
-                    contentDescription = "Back"
+                    contentDescription = stringResource(R.string.back)
                 )
             }
         },

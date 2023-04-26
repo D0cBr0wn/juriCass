@@ -8,23 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.example.juricass.ui.common.GenericTopBar
+import com.example.juricass.ui.common.ScreenBase
 
 @Composable
 fun BookMarksScreen(navController: NavController) {
-    Scaffold(
-        topBar = { GenericTopBar(navController) },
-        modifier = Modifier,
-        content = { padding -> Column(modifier = Modifier.padding(padding)) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement  = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-            ) {
-                Text("Bookmarks")
-            }
-        }
-        }
-    )
+    ScreenBase(navController = navController) {
+        Text("Bookmarks")
+    }
 }

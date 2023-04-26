@@ -97,6 +97,8 @@ int dimen result_icon 0x7f030026
 int dimen visor_margin 0x7f030027
 int dimen visor_offset 0x7f030028
 int drawable baseline_error_24 0x7f040001
+int drawable baseline_expand_less_24 0x7f040016
+int drawable baseline_expand_more_24 0x7f040017
 int drawable ic_call_answer 0x7f040002
 int drawable ic_call_answer_low 0x7f040003
 int drawable ic_call_answer_video 0x7f040004
@@ -213,8 +215,11 @@ int layout notification_template_part_chronometer 0x7f070005
 int layout notification_template_part_time 0x7f070006
 int mipmap ic_launcher 0x7f080000
 int mipmap ic_launcher_round 0x7f080001
+int string CollapseYesNo 0x7f090023
 int string androidx_startup 0x7f090000
+int string appName 0x7f090020
 int string app_name 0x7f090001
+int string back 0x7f090021
 int string call_notification_answer_action 0x7f090002
 int string call_notification_answer_video_action 0x7f090003
 int string call_notification_decline_action 0x7f090004
@@ -236,6 +241,7 @@ int string no_result_found 0x7f090013
 int string not_selected 0x7f090014
 int string off 0x7f090015
 int string on 0x7f090016
+int string openMenu 0x7f090024
 int string pourvoi_number 0x7f090017
 int string range_end 0x7f090018
 int string range_start 0x7f090019
@@ -245,6 +251,7 @@ int string status_bar_notification_info_overflow 0x7f09001c
 int string switch_role 0x7f09001d
 int string tab 0x7f09001e
 int string template_percent 0x7f09001f
+int string textOfDecision 0x7f090022
 int style DialogWindowTheme 0x7f0a0000
 int style FloatingDialogTheme 0x7f0a0001
 int style FloatingDialogWindowTheme 0x7f0a0002

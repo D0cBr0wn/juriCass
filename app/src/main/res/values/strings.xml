@@ -5,4 +5,9 @@
     <string name="pourvoi_number">Pourvoi n°</string>
     <string name="read">Read</string>
     <string name="noDecisionFound">No decision found</string>
+    <string name="appName">JuriCass</string>
+    <string name="back">Back</string>
+    <string name="textOfDecision">Texte de la décision :</string>
+    <string name="openMenu">Open Menu</string>
+    <string name="CollapseYesNo">collapse yes/no</string>
 </resources>

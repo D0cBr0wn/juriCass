@@ -29,12 +29,17 @@
     <dimen name="result_icon">200dp</dimen>
     <dimen name="visor_margin">32dp</dimen>
     <dimen name="visor_offset">100dp</dimen>
+    <string name="CollapseYesNo">collapse yes/no</string>
+    <string name="appName">JuriCass</string>
     <string name="app_name">JuriCass</string>
+    <string name="back">Back</string>
     <string name="loading">loading</string>
     <string name="noDecisionFound">No decision found</string>
     <string name="no_result_found">No result found</string>
+    <string name="openMenu">Open Menu</string>
     <string name="pourvoi_number">Pourvoi n°</string>
     <string name="read">Read</string>
+    <string name="textOfDecision">Texte de la décision :</string>
     <style name="Theme.JuriCass" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/status_bar</item>
     </style>
