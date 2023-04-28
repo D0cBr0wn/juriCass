@@ -1,5 +1,7 @@
 package com.example.juricass.data.model
+import android.util.Log
 import com.example.juricass.data.helpers.getFormatter
+import com.example.juricass.ui.decisionScreen.ZoneDisplayer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
@@ -56,4 +58,5 @@ data class Decision (
             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
             return date.format(formatter)
         }
+
 }

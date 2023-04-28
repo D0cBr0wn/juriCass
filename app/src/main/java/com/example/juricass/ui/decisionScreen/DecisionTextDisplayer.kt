@@ -1,13 +1,13 @@
 package com.example.juricass.ui.decisionScreen
 
 import android.util.Log
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Button
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 import androidx.compose.ui.res.stringResource
@@ -25,17 +25,15 @@ fun DecisionTextDisplayer(zones: Map<String, List<ZoneSegment>>?, text: String) 
             val zoneSegments = zones[zoneName]
             zoneSegments?.forEach { zoneSegment ->
                 // Do something with zoneSegment
-                Log.e("length", text.length.toString())
+
                 val start = zoneSegment.start
+                //Log.e("Start", start.toString())
                 val end = if (index == numZones - 1) text.length else zoneSegment.end
                 ZoneDisplayer(title = zoneName, text = text.substring(start, end))
             }
         }
     } else {
-
-                Text(text, Modifier.padding(16.dp))
-
-
+        Text(text, Modifier.padding(16.dp))
     }
 }
 
@@ -44,12 +42,17 @@ fun DecisionTextDisplayer(zones: Map<String, List<ZoneSegment>>?, text: String) 
 fun ZoneDisplayer(title: String, text: String) {
     var collapsed by remember { mutableStateOf(false) }
     var painter = if(collapsed) painterResource(id = R.drawable.baseline_expand_less_24) else painterResource(id = R.drawable.baseline_expand_more_24)
-    FlowRow(horizontalArrangement = Arrangement.SpaceBetween, modifier= Modifier.padding(16.dp)) {
-        Text(text = title)
-        Button(onClick = { collapsed = !collapsed }, shape = CircleShape) {
-            Icon(painter = painter, contentDescription = stringResource(R.string.CollapseYesNo))
+    Row(modifier = Modifier.padding(bottom = 8.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.background(MaterialTheme.colors.primary)) {
+            Text(text = title, style = MaterialTheme.typography.h5, modifier = Modifier
+                .weight(1f)
+                .padding(16.dp))
+            Button(onClick = { collapsed = !collapsed }, shape = CircleShape, colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary ), modifier = Modifier.padding(end = 8.dp)) {
+                Icon(painter = painter, contentDescription = stringResource(R.string.CollapseYesNo))
+            }
         }
     }
+
     if(!collapsed)
         Text(text, Modifier.padding(16.dp))
 }

@@ -10,4 +10,10 @@
     <string name="textOfDecision">Texte de la décision :</string>
     <string name="openMenu">Open Menu</string>
     <string name="CollapseYesNo">collapse yes/no</string>
+    <string name="introduction">introduction</string>
+    <string name="expose">exposé</string>
+    <string name="moyens">moyens</string>
+    <string name="motivations">motivations</string>
+    <string name="dispositif">dispositif</string>
+    <string name="annexes">annexes</string>
 </resources>

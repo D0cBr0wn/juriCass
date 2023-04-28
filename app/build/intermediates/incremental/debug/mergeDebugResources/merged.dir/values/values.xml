@@ -128,6 +128,7 @@
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="CollapseYesNo">collapse yes/no</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
+    <string name="annexes">annexes</string>
     <string name="appName">JuriCass</string>
     <string name="app_name">JuriCass</string>
     <string name="back">Back</string>
@@ -142,10 +143,15 @@
     <string name="close_sheet">"Close sheet"</string>
     <string name="default_error_message">"Invalid input"</string>
     <string name="default_popup_window_title" ns1:ignore="ExtraTranslation">"Pop-Up Window"</string>
+    <string name="dispositif">dispositif</string>
     <string name="dropdown_menu">"Dropdown menu"</string>
+    <string name="expose">exposé</string>
     <string name="in_progress">In progress</string>
     <string name="indeterminate">Partially checked</string>
+    <string name="introduction">introduction</string>
     <string name="loading">loading</string>
+    <string name="motivations">motivations</string>
+    <string name="moyens">moyens</string>
     <string name="navigation_menu">"Navigation menu"</string>
     <string name="noDecisionFound">No decision found</string>
     <string name="no_result_found">No result found</string>

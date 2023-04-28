@@ -37,10 +37,16 @@ drawable ic_launcher_foreground
 mipmap ic_launcher
 mipmap ic_launcher_round
 string CollapseYesNo
+string annexes
 string appName
 string app_name
 string back
+string dispositif
+string expose
+string introduction
 string loading
+string motivations
+string moyens
 string noDecisionFound
 string no_result_found
 string openMenu
