@@ -14,25 +14,29 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.juricass.R
 import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.theme.JuriCassTheme
 
 
 @Composable
-fun HomeTopBar(onSettingsClick:() -> Unit, onBookmarksClick:() -> Unit) {
+fun HomeTopBar(navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
     val menuItems = listOf("Bookmarks", "Settings")
 
     TopAppBar(
-        title = { Text("JuriCass") },
+        title = { Text(stringResource(R.string.appName)) },
+        backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
             IconButton(onClick = { expanded = true }) {
-                Icon(Icons.Filled.Menu, contentDescription = null)
+                Icon(Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
             }
 
             DropdownMenu(
@@ -45,8 +49,8 @@ fun HomeTopBar(onSettingsClick:() -> Unit, onBookmarksClick:() -> Unit) {
                         // Handle menu item click
                         expanded = false
                         when (index) {
-                            0 ->  onBookmarksClick() // Handle Option 1,
-                            1 ->  onSettingsClick() // Handle Option 2,
+                            0 ->  navController.navigate(JuriCassRoutes.BOOKMARKS.name) // Handle Option 1,
+                            1 ->  navController.navigate(JuriCassRoutes.SETTINGS.name) // Handle Option 2,
                         }
                     }) {
                         Text(title)
@@ -58,14 +62,15 @@ fun HomeTopBar(onSettingsClick:() -> Unit, onBookmarksClick:() -> Unit) {
     )
 }
 @Composable
-fun GenericTopBar(onGoHomeClick: () -> Unit) {
+fun GenericTopBar(navController: NavController) {
     TopAppBar(
-        title = { Text("JuriCass") },
+        title = { Text(stringResource(R.string.appName)) },
+        backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
-            IconButton(onClick = { onGoHomeClick.invoke() }) {
+            IconButton(onClick = { navController.navigate(JuriCassRoutes.HOME.name) }) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
-                    contentDescription = "Back"
+                    contentDescription = stringResource(R.string.back)
                 )
             }
         },
@@ -81,7 +86,7 @@ fun HomeBarPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
         Scaffold(modifier = Modifier.fillMaxSize()) {
-            HomeTopBar(onSettingsClick = {}, onBookmarksClick ={})
+            HomeTopBar(navController)
         }
     }
 }
@@ -94,7 +99,7 @@ fun GenericBarPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
         Scaffold(modifier = Modifier.fillMaxSize()) {
-            GenericTopBar(onGoHomeClick = {})
+            GenericTopBar(navController)
         }
     }
 }

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="error">#FFFF3333</color>
     <color name="success">#FF22bb33</color>
+    <color name="status_bar">#212121</color>
 </resources>

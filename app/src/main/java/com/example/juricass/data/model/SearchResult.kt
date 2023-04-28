@@ -2,6 +2,8 @@ package com.example.juricass.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 @Serializable
 data class SearchResult(
@@ -25,4 +27,11 @@ data class SearchResult(
     val bulletin: String?= null,
     val files: List<FileLink>,
     val themes: List<String>
-)
+) {
+    val formattedDecisionDate : String
+        get() {
+            val date = LocalDate.parse(decisionDate)
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            return date.format(formatter)
+        }
+}

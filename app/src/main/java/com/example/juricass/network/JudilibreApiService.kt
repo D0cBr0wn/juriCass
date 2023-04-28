@@ -41,14 +41,17 @@ interface JudilibreApiService {
     @GET("healthcheck")
     suspend fun healthcheck(): Result<ApiHealth>
 
-    @GET("decision")
-    suspend fun getDecision(@Query("id") id: String): Result<Decision>
-
     @GET("search")
     suspend fun search(
         @Query("query") query: String,
         @Query("resolve_references") resolve_references: Boolean = true
     ): Result<SearchPage>
+
+    @GET("decision")
+    suspend fun getDecision(
+        @Query("id") id: String,
+        @Query("resolve_references") resolve_references: Boolean = true
+    ): Result<Decision>
 }
 
 object JudilibreApi {
