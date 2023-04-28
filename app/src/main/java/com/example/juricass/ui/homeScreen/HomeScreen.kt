@@ -27,6 +27,7 @@ import com.example.juricass.ui.theme.JuriCassTheme
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
+
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, navController: NavController) {
 
