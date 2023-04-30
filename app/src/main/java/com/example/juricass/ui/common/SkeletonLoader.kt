@@ -24,7 +24,7 @@ import com.example.juricass.ui.theme.JuriCassTheme
 
 
 @Composable
-fun SkeletonLoader(isLoading: Boolean = false, rows: Int = 10, error: String? = null) {
+fun SkeletonLoader(isLoading: Boolean = false, rows: Int = 10, error: String? = null, modifier: Modifier = Modifier) {
     if(isLoading || error !== null) {
         Column(
             verticalArrangement = if(error === null) Arrangement.Top else Arrangement.Center,

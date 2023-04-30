@@ -6,13 +6,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavType
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.compose.NavHost
@@ -37,7 +34,7 @@ enum class JuriCassRoutes() {
 @Composable
 fun JuriCassApp() {
     val navController = rememberNavController()
-    val homeViewModel = HomeViewModel()
+
     //val decisionViewModel = DecisionViewmodel()
 
     NavHost(
@@ -46,9 +43,14 @@ fun JuriCassApp() {
         modifier = Modifier
     ) {
         composable(route = JuriCassRoutes.HOME.name) {
+            val homeViewModel = HomeViewModel()
+            val homeState by homeViewModel.homeState.collectAsState()
+            val homeSearch = homeViewModel.homeSearch()
             HomeScreen(
-                homeViewModel,
+                homeState,
                 navController,
+                homeSearch = { homeSearch },
+
             )
         }
         composable(route = JuriCassRoutes.SETTINGS.name) {
