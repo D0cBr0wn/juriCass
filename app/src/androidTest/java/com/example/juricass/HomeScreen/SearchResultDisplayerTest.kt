@@ -10,7 +10,6 @@ import androidx.compose.ui.test.performClick
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.juricass.data.model.SearchResult
-import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.common.SearchResultDisplayer
 import com.example.juricass.ui.homeScreen.HomeScreen
 import org.junit.Assert

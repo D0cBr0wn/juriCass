@@ -22,10 +22,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.juricass.JuriCassRoutes
 import com.example.juricass.R
 import com.example.juricass.data.model.FileLink
 import com.example.juricass.data.model.SearchResult
-import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.theme.JuriCassTheme
 
 

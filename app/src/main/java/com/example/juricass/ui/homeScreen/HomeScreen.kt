@@ -46,7 +46,7 @@ fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () ->
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                //SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
+                SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
                     if (state.searchPage === null || state.searchPage!!.results.isEmpty() && !state.isLoading) {
                         Text(text = stringResource(id = R.string.no_result_found))
                     } else {
@@ -58,7 +58,7 @@ fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () ->
                             }
                         }
                     }
-                //}
+                }
             }
             }
         }

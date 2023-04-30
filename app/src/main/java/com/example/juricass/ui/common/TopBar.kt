@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.juricass.JuriCassRoutes
 import com.example.juricass.R
-import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.theme.JuriCassTheme
 
 
