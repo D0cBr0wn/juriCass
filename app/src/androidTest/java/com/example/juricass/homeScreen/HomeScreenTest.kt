@@ -14,33 +14,21 @@
  * limitations under the License.
  */
 
-package com.example.juricass.HomeScreen
+package com.example.juricass.homeScreen
 
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.juricass.ui.homeScreen.HomeScreen
-import com.example.juricass.ui.homeScreen.HomeViewModel
-import androidx.compose.foundation.layout.R
-import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.onNodeWithTag
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.juricass.data.model.SearchPage
 import com.example.juricass.data.model.SearchQuery
 import com.example.juricass.data.model.SearchResult
 import com.example.juricass.data.state.HomeState
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
-import io.mockk.mockk
-import kotlinx.coroutines.flow.flow
-import org.junit.Before
+
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -131,23 +119,9 @@ class HomeScreenTest {
         )
 
         composeTestRule.setContent {
-            HomeScreen(homeState, TestNavHostController(LocalContext.current), {})//
+            HomeScreen(homeState, TestNavHostController(LocalContext.current)) {}//
         }
 
         composeTestRule.onNodeWithTag("homeLazyColumn").assertIsDisplayed()
     }
-
-   // @Test
-    //fun home_search_is_loading() {
-     //   var homeState = HomeState(isLoading = true)
-
-      //  composeTestRule.setContent {
-       //     HomeScreen(homeState, TestNavHostController(LocalContext.current), {})//
-       // }
-
-     //   composeTestRule.onNodeWithTag("homeLoader").assertIsDisplayed()
-  //  }
-
-
-    //test destination
 }

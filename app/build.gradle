@@ -84,13 +84,15 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
     // Compose testing dependencies
     androidTestImplementation "androidx.compose.ui:ui-test"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4"
     debugImplementation "androidx.compose.ui:ui-test-manifest"
-    androidTestImplementation "io.mockk:mockk:1.12.3"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+
 
 
 

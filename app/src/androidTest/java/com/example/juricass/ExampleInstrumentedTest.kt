@@ -10,10 +10,7 @@ import com.example.juricass.data.model.SearchPage
 import com.example.juricass.data.state.HomeState
 import com.example.juricass.ui.homeScreen.HomeScreen
 import com.example.juricass.ui.homeScreen.HomeViewModel
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
-import io.mockk.mockk
+
 import kotlinx.coroutines.flow.flow
 
 import org.junit.Test
