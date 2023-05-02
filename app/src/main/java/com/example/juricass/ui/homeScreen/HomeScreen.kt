@@ -46,12 +46,12 @@ fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () ->
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
+                SkeletonLoader(state.isLoading, error = state.error, modifier = Modifier.testTag("homeLoader"))
                 SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
-                    if (state.searchPage === null || state.searchPage!!.results.isEmpty() && !state.isLoading) {
-                        Text(text = stringResource(id = R.string.no_result_found))
-                    } else {
 
-                        SkeletonLoader(state.isLoading, error = state.error, modifier = Modifier.testTag("homeLoader"))
+                    if (state.searchPage === null || state.searchPage!!.results.isEmpty()) {
+                        if(!state.isLoading) Text(text = stringResource(id = R.string.no_result_found))
+                    } else {
                         LazyColumn(modifier = Modifier.testTag("homeLazyColumn"))  {
                             itemsIndexed(state.searchPage!!.results) { index, item ->
                                 if (!state.isLoading) SearchResultDisplayer(item, navController)

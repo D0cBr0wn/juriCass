@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,7 +28,7 @@ import com.example.juricass.ui.theme.JuriCassTheme
 
 
 @Composable
-fun HomeTopBar(navController: NavController) {
+fun HomeTopBar(navController: NavController, modifier: Modifier = Modifier.testTag("homeTopBar")) {
     var expanded by remember { mutableStateOf(false) }
     val menuItems = listOf("Bookmarks", "Settings")
 
@@ -62,7 +63,7 @@ fun HomeTopBar(navController: NavController) {
     )
 }
 @Composable
-fun GenericTopBar(navController: NavController) {
+fun GenericTopBar(navController: NavController, modifier: Modifier = Modifier.testTag("genericTopBar")) {
     TopAppBar(
         title = { Text(stringResource(R.string.appName)) },
         backgroundColor = MaterialTheme.colors.primary,

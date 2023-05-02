@@ -76,6 +76,7 @@ fun SearchResultDisplayer(result: SearchResult, navController: NavController) {
                 Text(text = result.summary)
             }
         }
+        Text("just for test", modifier = Modifier.testTag("testTag"))
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             onClick = { navController.navigate(JuriCassRoutes.DECISION.name + "/${result.id}") },

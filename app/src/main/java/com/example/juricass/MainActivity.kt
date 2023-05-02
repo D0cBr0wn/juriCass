@@ -62,7 +62,6 @@ class MainActivity : ComponentActivity() {
                         composable(route = JuriCassRoutes.HOME.name) {
                             val homeViewModel = ViewModelProvider(this@MainActivity)[HomeViewModel::class.java]
                             val homeState by homeViewModel.homeState.collectAsState()
-                            //val homeSearch = homeViewModel.homeSearch()
                             HomeScreen(
                                 homeState,
                                 navController,
