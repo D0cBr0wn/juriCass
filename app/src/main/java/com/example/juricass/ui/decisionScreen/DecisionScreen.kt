@@ -22,7 +22,7 @@ fun DecisionScreen(state: DecisionState, navController: NavController) {
     ScreenBase(navController = navController) {
         CircleLoader(state.isLoading, state.error)
         if (!state.isLoading) {
-            DecisionDisplayer(decision = state.decision, modifier = Modifier.testTag("solutionDisplayer"))
+            DecisionDisplayer(decision = state.decision, modifier = Modifier)
        }
     }
 }

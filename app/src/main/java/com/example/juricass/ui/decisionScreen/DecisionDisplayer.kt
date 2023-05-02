@@ -24,7 +24,7 @@ import com.example.juricass.ui.common.DashSeparator
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun DecisionDisplayer(decision: Decision?, modifier: Modifier = Modifier.testTag("decisionDisplayer")) {
+fun DecisionDisplayer(decision: Decision?, modifier: Modifier = Modifier) {
     val rowModifier = Modifier
         .padding(8.dp)
         .fillMaxWidth()
@@ -35,7 +35,7 @@ fun DecisionDisplayer(decision: Decision?, modifier: Modifier = Modifier.testTag
         }
 
     } else {
-        LazyColumn(modifier = Modifier.fillMaxWidth()) {
+        LazyColumn(modifier = Modifier.fillMaxWidth().testTag("solutionDisplayer")) {
             item {
                 FlowRow(horizontalArrangement = Arrangement.Start, modifier = rowModifier) {
                     val typo = MaterialTheme.typography.h4
