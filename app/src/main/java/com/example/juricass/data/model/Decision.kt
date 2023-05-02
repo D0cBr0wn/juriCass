@@ -17,18 +17,18 @@ data class Decision (
     val text: String,
     @SerialName(value = "text_highlight")
     val textHighlight: String? = null,
-    val nac: String?,
+    val nac: String?= null,
     @SerialName(value = "update_date")
-    val updateDate: String,//TODO: handle date properly
-    val visa: List<TextLink>,
-    val rapprochements: List<Rapprochement>,
+    val updateDate: String?= null,//TODO: handle date properly
+    val visa: List<TextLink>?= null,
+    val rapprochements: List<Rapprochement>?= null,
     @SerialName(value = "to_be_deleted")
     val toBeDeleted: Boolean = false,
     val jurisdiction: String,
     val chamber: String,
     val number: String,
     val numbers: List<String>,
-    val ecli: String?,
+    val ecli: String?= null,
     val formation: String? = null,
     val publication: List<String>,
     @SerialName(value = "decision_date")
@@ -39,14 +39,14 @@ data class Decision (
     val solutionAlt: String? = null,
     val summary: String,
     val bulletin: String? = null,
-    val files: List<FileLink>,
+    val files: List<FileLink>?= null,
     val themes: List<String>,
-    val portalis: String?,
-    val forward: String?,
-    val contested: Judgement?,
-    val timeline: List<Judgement>?,
+    val portalis: String?= null,
+    val forward: String?= null,
+    val contested: Judgement?= null,
+    val timeline: List<Judgement>?= null,
     val partial: Boolean,
-    val legacy: Unknown?,//TODO: find proper object
+    val legacy: Unknown? = null,//TODO: find proper object
 ) {
     val decisionDateAsObject : OffsetDateTime
         get() {

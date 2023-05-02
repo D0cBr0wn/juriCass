@@ -264,6 +264,7 @@
                   <entry key="Duration" value="90" />
                   <entry key="Tests" value="360" />
                   <entry key="ZY22DQPWRW" value="120" />
+                  <entry key="motorola" value="120" />
                   <entry key="motorola&#10; motorola edge 20" value="120" />
                 </map>
               </option>
@@ -271,6 +272,20 @@
           </value>
         </entry>
         <entry key="953550653">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="ZY22DQPWRW" value="120" />
+                  <entry key="motorola&#10; motorola edge 20" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="980355618">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">

@@ -18,6 +18,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.juricass.JuriCassRoutes
 import com.example.juricass.assertCurrentRouteName
+import com.example.juricass.data.model.Decision
 import com.example.juricass.data.model.SearchPage
 import com.example.juricass.data.model.SearchQuery
 import com.example.juricass.data.model.SearchResult
@@ -38,27 +39,56 @@ class DecisionScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
     private lateinit var navController: TestNavHostController
+    private lateinit var state: DecisionState
 
     @Before
-    fun setupAppNavHost() {
+    fun setup() {
         // Create a TestNavHostController
         navController = TestNavHostController(ApplicationProvider.getApplicationContext())
         // Set the navigator provider to use the ComposeNavigator
         navController.navigatorProvider.addNavigator(ComposeNavigator())
-    }
 
-
-
-
-    @Test
-    fun decision_is_null() {
-        var state = DecisionState()
+        var homeState = HomeState(
+            searchPage = SearchPage(
+                page= 0,
+                pageSize= 10,
+                query = SearchQuery(
+                    query= "propriété",
+                    resolveReferences =  true
+                ),
+                total =  10000,
+                previousPage =  null,
+                nextPage= "query=propri%C3%A9t%C3%A9&resolve_references=true&field=&type=&theme=&chamber=&formation=&jurisdiction=&location=&publication=&solution=&page=1",
+                took= 34,
+                maxScore =  1292.1495,
+                results =  listOf(
+                    SearchResult(
+                        score = 666.666,
+                        id = "hdjzhsjshsjs",
+                        jurisdiction = "cc",
+                        chamber = "chamber",
+                        numbers = listOf("5667"),
+                        number = "6475758",
+                        publication = listOf("bulletin"),
+                        decisionDate = "2023-06-06",
+                        type = "type",
+                        solution = "rejet",
+                        summary = "",
+                        highlights = null,
+                        files = null,
+                        themes = null
+                    )
+                ),
+                relaxed = false,
+                searchQuery = "dmkdmefmez"
+            )
+        )
 
         composeTestRule.setContent {
             NavHost(navController = navController, startDestination = JuriCassRoutes.HOME.name) {
                 composable(route = JuriCassRoutes.HOME.name) {
                     HomeScreen(
-                        HomeState(),
+                        homeState,
                         navController,
                         homeSearch = { }
                     )
@@ -73,10 +103,43 @@ class DecisionScreenTest {
                 }
             }
         }
-        // navigate to the DecisionScreen
-        navController.navigate(JuriCassRoutes.DECISION.name + "/null")
+    }
+
+
+
+
+    @Test
+    fun decision_is_null() {
+        state = DecisionState()
+        navigateToDecisionScreen()
 
         composeTestRule.onNodeWithTag("nothingFound").assertIsDisplayed()
+    }
+
+    @Test
+    fun decision_is_not_null_no_zones() {
+        state = DecisionState(
+            decision = Decision(
+                id = "decisionId",
+                source = "source",
+                text = "loremipsum text",
+                jurisdiction = "cc",
+                chamber = "chamber",
+                number = "3456787654",
+                numbers = listOf("567876", "567898767"),
+                publication = listOf("publi-567876", "publi-567898767"),
+                decisionDate = "2023-02-28",
+                type = "type",
+                solution = "rejet",
+                summary = "summary",
+                themes = listOf("theme-567876", "theme-567898767"),
+                partial = false,
+            )
+        )
+        Thread.sleep(2000)
+        navigateToDecisionScreen()
+Thread.sleep(7000)
+        composeTestRule.onNodeWithTag("solutionDisplayer").assertIsDisplayed()
     }
 //
 //    @Test
@@ -167,4 +230,8 @@ class DecisionScreenTest {
 //        composeTestRule.onNodeWithTag("decisionButton").performClick()
 //        navController.assertCurrentRouteName(JuriCassRoutes.DECISION.name + "/{decisionId}")//TODO: find a way to work with proper Id
 //    }
+
+    private fun navigateToDecisionScreen() {
+        composeTestRule.onNodeWithTag("decisionButton").performClick()
+    }
 }
