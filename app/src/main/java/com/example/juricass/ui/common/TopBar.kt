@@ -28,7 +28,7 @@ import com.example.juricass.ui.theme.JuriCassTheme
 
 
 @Composable
-fun HomeTopBar(navController: NavController, modifier: Modifier = Modifier.testTag("homeTopBar")) {
+fun HomeTopBar(navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
     val menuItems = listOf("Bookmarks", "Settings")
 
@@ -59,11 +59,12 @@ fun HomeTopBar(navController: NavController, modifier: Modifier = Modifier.testT
                 }
             }
         },
-        actions = {}
+        actions = {},
+        modifier = Modifier.testTag("homeTopBar")
     )
 }
 @Composable
-fun GenericTopBar(navController: NavController, modifier: Modifier = Modifier.testTag("genericTopBar")) {
+fun GenericTopBar(navController: NavController) {
     TopAppBar(
         title = { Text(stringResource(R.string.appName)) },
         backgroundColor = MaterialTheme.colors.primary,
@@ -75,7 +76,8 @@ fun GenericTopBar(navController: NavController, modifier: Modifier = Modifier.te
                 )
             }
         },
-        actions = {}
+        actions = {},
+        modifier= Modifier.testTag("genericTopBar")
     )
 }
 

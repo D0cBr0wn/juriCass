@@ -46,7 +46,7 @@ fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () ->
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                SkeletonLoader(state.isLoading, error = state.error, modifier = Modifier.testTag("homeLoader"))
+                SkeletonLoader(state.isLoading, error = state.error)
                 SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
 
                     if (state.searchPage === null || state.searchPage!!.results.isEmpty()) {

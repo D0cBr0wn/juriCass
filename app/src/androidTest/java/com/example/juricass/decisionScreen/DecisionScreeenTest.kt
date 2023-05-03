@@ -114,7 +114,18 @@ class DecisionScreenTest {
         state = DecisionState()
         navigateToDecisionScreen()
 
+        composeTestRule.onNodeWithTag("genericTopBar").assertIsDisplayed()
         composeTestRule.onNodeWithTag("nothingFound").assertIsDisplayed()
+    }
+
+    @Test
+    fun decision_is_loading() {
+        state = DecisionState(isLoading = true)
+        navigateToDecisionScreen()
+
+        composeTestRule.onNodeWithTag("genericTopBar").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("circleLoader").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("nothingFound").assertDoesNotExist()
     }
 
     @Test
@@ -139,6 +150,7 @@ class DecisionScreenTest {
         )
 
         navigateToDecisionScreen()
+        composeTestRule.onNodeWithTag("genericTopBar").assertIsDisplayed()
         composeTestRule.onNodeWithTag("solutionDisplayer").assertIsDisplayed()
         composeTestRule.onNodeWithTag("noZones").assertIsDisplayed()
     }
@@ -170,6 +182,7 @@ class DecisionScreenTest {
         )
 
         navigateToDecisionScreen()
+        composeTestRule.onNodeWithTag("genericTopBar").assertIsDisplayed()
         composeTestRule.onNodeWithTag("solutionDisplayer").assertIsDisplayed()
         composeTestRule.onNodeWithTag("zoneDisplayer").assertIsDisplayed()
     }

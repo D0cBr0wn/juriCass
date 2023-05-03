@@ -99,8 +99,8 @@ class HomeScreenTest {
             }
         }
 
-        composeTestRule.onNodeWithText("JuriCass").assertIsDisplayed()// top bar
-        composeTestRule.onNodeWithTag("homeLoader").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("homeTopBar").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("skeletonLoader").assertDoesNotExist()
         composeTestRule.onNodeWithText("No result found").assertIsDisplayed()
     }
 
@@ -116,8 +116,8 @@ class HomeScreenTest {
             }
         }
 
-        composeTestRule.onNodeWithText("JuriCass").assertIsDisplayed()// top bar
-        composeTestRule.onNodeWithTag("homeLoader").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("homeTopBar").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("skeletonLoader").assertIsDisplayed()
         composeTestRule.onNodeWithText("No result found").assertDoesNotExist()
     }
 
@@ -145,7 +145,7 @@ class HomeScreenTest {
         composeTestRule.setContent {
             HomeScreen(homeState, navController, {})//
         }
-        composeTestRule.onNodeWithText("JuriCass").assertIsDisplayed()// top bar
+        composeTestRule.onNodeWithTag("homeTopBar").assertIsDisplayed()
         composeTestRule.onNodeWithText("No result found").assertIsDisplayed()
     }
 
@@ -204,7 +204,7 @@ class HomeScreenTest {
                 }
             }
         }
-        composeTestRule.onNodeWithText("JuriCass").assertIsDisplayed()// top bar
+        composeTestRule.onNodeWithTag("homeTopBar").assertIsDisplayed()
         composeTestRule.onNodeWithTag("homeLazyColumn").assertIsDisplayed()
         composeTestRule.onNodeWithTag("decisionButton").assertIsDisplayed()
         composeTestRule.onNodeWithTag("decisionButton").performClick()
