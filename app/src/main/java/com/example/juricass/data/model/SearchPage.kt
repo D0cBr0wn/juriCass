@@ -21,20 +21,3 @@ data class SearchPage (
     val relaxed: Boolean,
     val searchQuery: String
 )
-
-val fixture = SearchPage(
-        page= 0,
-        pageSize= 10,
-        query = SearchQuery(
-            query= "propriété",
-            resolveReferences =  true
-        ),
-        total =  10000,
-        previousPage =  null,
-        nextPage= "query=propri%C3%A9t%C3%A9&resolve_references=true&field=&type=&theme=&chamber=&formation=&jurisdiction=&location=&publication=&solution=&page=1",
-        took= 34,
-        maxScore =  1292.1495,
-        results =  emptyList(),
-        relaxed = false,
-        searchQuery = "dmkdmefmez"
-    )

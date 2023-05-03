@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.juricass.R
+import com.example.juricass.data.fixtures.SearchPageFixture
 import com.example.juricass.data.model.Decision
 import com.example.juricass.data.model.SearchResult
 import com.example.juricass.data.state.HomeState
@@ -69,18 +70,36 @@ fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () ->
 
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
 @Composable
-fun HomeScreenPreviewDark() {
+fun EmptyHomeScreenPreviewDark() {
     val navController = rememberNavController()
     JuriCassTheme() {
         HomeScreen(HomeState(), navController, {} )
     }
 }
 
-@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, showSystemUi = true)
+@Preview("Light Theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, showSystemUi = true)
+@Composable
+fun EmptyHomeScreenPreview() {
+    val navController = rememberNavController()
+    JuriCassTheme() {
+        HomeScreen(HomeState(), navController, {})
+    }
+}
+
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
+@Composable
+fun HomeScreenPreviewDark() {
+    val navController = rememberNavController()
+    JuriCassTheme() {
+        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} )
+    }
+}
+
+@Preview("Light Theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, showSystemUi = true)
 @Composable
 fun HomeScreenPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(), navController, {})
+        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} )
     }
 }
