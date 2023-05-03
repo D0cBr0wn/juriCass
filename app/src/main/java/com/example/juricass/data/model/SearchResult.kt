@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 @Serializable
 data class SearchResult(
     val score: Double,
-    val highlights: Map<String, List<String>>,
+    val highlights: Map<String, List<String>>?,
     val id: String,
     val jurisdiction: String,
     val chamber: String,
@@ -25,8 +25,8 @@ data class SearchResult(
     val solutionAlt: String?= null,
     val summary: String?,
     val bulletin: String?= null,
-    val files: List<FileLink>,
-    val themes: List<String>
+    val files: List<FileLink>?,
+    val themes: List<String>?
 ) {
     val formattedDecisionDate : String
         get() {

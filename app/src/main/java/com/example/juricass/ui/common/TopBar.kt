@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.juricass.JuriCassRoutes
 import com.example.juricass.R
-import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.theme.JuriCassTheme
 
 
@@ -58,7 +59,8 @@ fun HomeTopBar(navController: NavController) {
                 }
             }
         },
-        actions = {}
+        actions = {},
+        modifier = Modifier.testTag("homeTopBar")
     )
 }
 @Composable
@@ -74,7 +76,8 @@ fun GenericTopBar(navController: NavController) {
                 )
             }
         },
-        actions = {}
+        actions = {},
+        modifier= Modifier.testTag("genericTopBar")
     )
 }
 

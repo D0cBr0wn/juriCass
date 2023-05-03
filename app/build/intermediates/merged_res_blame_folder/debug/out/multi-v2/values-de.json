@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-48:/values-de/values-de.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-47:/values-de/values-de.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\1a0aedab3482160f66133434afe98ca6\\transformed\\core-1.10.0\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\f25f014e3a9f17ed30110f1a9236a134\\transformed\\core-1.10.0\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\963be0ff416dbd3493c8bfe0ebd011b8\\transformed\\ui-1.4.2\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\df2a00c2413e979d82e2dc3ab0e951d7\\transformed\\ui-1.4.2\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

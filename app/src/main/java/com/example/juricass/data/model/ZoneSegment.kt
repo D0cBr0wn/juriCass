@@ -3,11 +3,7 @@ import com.example.juricass.R
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ZoneSegment(val start: Int, val end: Int) : Comparable<ZoneSegment> {
-    override fun compareTo(other: ZoneSegment): Int {
-        return this.start.compareTo(other.start)
-    }
-}
+data class ZoneSegment(val start: Int, val end: Int)
 
 enum class Zone(val titleResId: Int) {
     INTRODUCTION(R.string.introduction),

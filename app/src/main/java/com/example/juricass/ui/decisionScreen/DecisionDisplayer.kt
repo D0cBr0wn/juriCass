@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -23,18 +24,18 @@ import com.example.juricass.ui.common.DashSeparator
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun DecisionDisplayer(decision: Decision?) {
+fun DecisionDisplayer(decision: Decision?, modifier: Modifier = Modifier) {
     val rowModifier = Modifier
         .padding(8.dp)
         .fillMaxWidth()
     if(decision == null) {
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement  = Arrangement.Center) {
-            Text(text = stringResource(R.string.noDecisionFound))
+            Text(text = stringResource(R.string.noDecisionFound), modifier = Modifier.testTag("nothingFound"))
         }
 
     } else {
-        LazyColumn(modifier = Modifier.fillMaxWidth()) {
+        LazyColumn(modifier = Modifier.fillMaxWidth().testTag("solutionDisplayer")) {
             item {
                 FlowRow(horizontalArrangement = Arrangement.Start, modifier = rowModifier) {
                     val typo = MaterialTheme.typography.h4

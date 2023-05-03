@@ -51,6 +51,8 @@ android {
 dependencies {
     def nav_version = '2.5.3'
     def compose_ui_version = '1.4.2'
+    def coreTestingVersion = "2.2.0"
+    def espressoVersion = "3.5.1"
 
     implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
@@ -77,6 +79,23 @@ dependencies {
     // swipe and refresh
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
     implementation "com.google.accompanist:accompanist-swiperefresh:0.27.0"
+
+    // Testing dependencies
+    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    // Compose testing dependencies
+    androidTestImplementation "androidx.compose.ui:ui-test"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+
+
+
+
 
 
 

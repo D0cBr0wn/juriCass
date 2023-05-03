@@ -9,6 +9,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -33,7 +34,7 @@ fun DecisionTextDisplayer(zones: Map<String, List<ZoneSegment>>?, text: String) 
             }
         }
     } else {
-        Text(text, Modifier.padding(16.dp))
+        Text(text, Modifier.padding(16.dp).testTag("noZones"))
     }
 }
 
@@ -42,7 +43,7 @@ fun DecisionTextDisplayer(zones: Map<String, List<ZoneSegment>>?, text: String) 
 fun ZoneDisplayer(title: String, text: String) {
     var collapsed by remember { mutableStateOf(false) }
     var painter = if(collapsed) painterResource(id = R.drawable.baseline_expand_less_24) else painterResource(id = R.drawable.baseline_expand_more_24)
-    Row(modifier = Modifier.padding(bottom = 8.dp)) {
+    Row(modifier = Modifier.padding(bottom = 8.dp).testTag("zoneDisplayer")) {
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.background(MaterialTheme.colors.primary)) {
             Text(text = title, style = MaterialTheme.typography.h5, modifier = Modifier
                 .weight(1f)

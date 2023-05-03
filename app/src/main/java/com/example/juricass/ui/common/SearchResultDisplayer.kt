@@ -14,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key.Companion.Ro
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,10 +22,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.juricass.JuriCassRoutes
 import com.example.juricass.R
 import com.example.juricass.data.model.FileLink
 import com.example.juricass.data.model.SearchResult
-import com.example.juricass.ui.JuriCassRoutes
 import com.example.juricass.ui.theme.JuriCassTheme
 
 
@@ -34,7 +35,7 @@ fun SearchResultDisplayer(result: SearchResult, navController: NavController) {
     val rowModifier = Modifier
         .padding(8.dp)
         .fillMaxWidth()
-    Surface(elevation =1.dp, modifier = Modifier.padding(vertical = 8.dp, horizontal = 2.dp)) {
+    Surface(elevation =1.dp, modifier = Modifier.padding(vertical = 8.dp, horizontal = 2.dp).testTag("surface")) {
 
     Column(modifier = Modifier
         .fillMaxWidth()
@@ -75,10 +76,11 @@ fun SearchResultDisplayer(result: SearchResult, navController: NavController) {
                 Text(text = result.summary)
             }
         }
+        Text("just for test", modifier = Modifier.testTag("testTag"))
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             onClick = { navController.navigate(JuriCassRoutes.DECISION.name + "/${result.id}") },
-            modifier = Modifier.fillMaxWidth()) {
+            modifier = Modifier.fillMaxWidth().testTag("decisionButton")) {
             Text(stringResource(R.string.read))
         }
         Spacer(modifier = Modifier.height(16.dp))
@@ -96,8 +98,8 @@ fun HeaderText(text: String = "") {
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun ThemesDisplayer(themes: List<String>, outlined: Boolean = true) {
-    if(themes.isNotEmpty()) {
+fun ThemesDisplayer(themes: List<String>?, outlined: Boolean = true) {
+    if(!themes.isNullOrEmpty()) {
         FlowRow(horizontalArrangement = Arrangement.Start ) {
             Box(
                 Modifier

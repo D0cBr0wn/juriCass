@@ -1,12 +1,23 @@
 package com.example.juricass
 
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.juricass.data.model.SearchPage
+import com.example.juricass.data.state.HomeState
+import com.example.juricass.ui.homeScreen.HomeScreen
+import com.example.juricass.ui.homeScreen.HomeViewModel
+
+import kotlinx.coroutines.flow.flow
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.

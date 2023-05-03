@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-48:/values-vi/values-vi.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-47:/values-vi/values-vi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\1a0aedab3482160f66133434afe98ca6\\transformed\\core-1.10.0\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,152,254,353,453,556,669,785",
-                        "endColumns": "96,101,98,99,102,112,115,100",
-                        "endOffsets": "147,249,348,448,551,664,780,881"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,23",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,202,304,403,503,606,719,2061",
-                        "endColumns": "96,101,98,99,102,112,115,100",
-                        "endOffsets": "197,299,398,498,601,714,830,2157"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\963be0ff416dbd3493c8bfe0ebd011b8\\transformed\\ui-1.4.2\\res\\values-vi\\values-vi.xml",
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\df2a00c2413e979d82e2dc3ab0e951d7\\transformed\\ui-1.4.2\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "835,931,1017,1123,1223,1315,1400,1493,1587,1668,1738,1808,1898,1989,2162,2239,2305",
                         "endColumns": "95,85,105,99,91,84,92,93,80,69,69,89,90,71,76,65,113",
                         "endOffsets": "926,1012,1118,1218,1310,1395,1488,1582,1663,1733,1803,1893,1984,2056,2234,2300,2414"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\f25f014e3a9f17ed30110f1a9236a134\\transformed\\core-1.10.0\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,152,254,353,453,556,669,785",
+                        "endColumns": "96,101,98,99,102,112,115,100",
+                        "endOffsets": "147,249,348,448,551,664,780,881"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,23",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,202,304,403,503,606,719,2061",
+                        "endColumns": "96,101,98,99,102,112,115,100",
+                        "endOffsets": "197,299,398,498,601,714,830,2157"
                     }
                 }
             ]

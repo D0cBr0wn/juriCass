@@ -12,6 +12,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.juricass.R
 import com.example.juricass.data.model.Decision
 import com.example.juricass.data.model.SearchResult
+import com.example.juricass.data.state.HomeState
 import com.example.juricass.ui.common.HomeTopBar
 import com.example.juricass.ui.common.SearchResultDisplayer
 import com.example.juricass.ui.common.SkeletonLoader
@@ -27,10 +30,10 @@ import com.example.juricass.ui.theme.JuriCassTheme
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
-@Composable
-fun HomeScreen(viewModel: HomeViewModel, navController: NavController) {
 
-    val state by viewModel.homeState.collectAsState()
+@Composable
+fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () -> Unit = {}) {
+
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
     Scaffold(
         topBar = { HomeTopBar(navController) },
@@ -43,13 +46,13 @@ fun HomeScreen(viewModel: HomeViewModel, navController: NavController) {
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                SwipeRefresh(state = swipeRefreshState, onRefresh = viewModel::homeSearch) {
-                    if (state.searchPage === null || state.searchPage!!.results.isEmpty() && !state.isLoading) {
-                        Text(text = stringResource(id = R.string.no_result_found))
-                    } else {
+                SkeletonLoader(state.isLoading, error = state.error)
+                SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
 
-                        SkeletonLoader(state.isLoading, error = state.error)
-                        LazyColumn {
+                    if (state.searchPage === null || state.searchPage!!.results.isEmpty()) {
+                        if(!state.isLoading) Text(text = stringResource(id = R.string.no_result_found))
+                    } else {
+                        LazyColumn(modifier = Modifier.testTag("homeLazyColumn"))  {
                             itemsIndexed(state.searchPage!!.results) { index, item ->
                                 if (!state.isLoading) SearchResultDisplayer(item, navController)
                             }
@@ -67,19 +70,17 @@ fun HomeScreen(viewModel: HomeViewModel, navController: NavController) {
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
 @Composable
 fun HomeScreenPreviewDark() {
-    val viewModel = HomeViewModel()
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(viewModel = viewModel, navController )
+        HomeScreen(HomeState(), navController, {} )
     }
 }
 
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, showSystemUi = true)
 @Composable
 fun HomeScreenPreview() {
-    val viewModel = HomeViewModel()
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(viewModel = viewModel, navController)
+        HomeScreen(HomeState(), navController, {})
     }
 }
