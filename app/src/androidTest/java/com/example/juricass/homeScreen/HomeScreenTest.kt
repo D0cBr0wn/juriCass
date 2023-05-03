@@ -1,19 +1,3 @@
-/*
- * Copyright 2021 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.juricass.homeScreen
 
 import android.util.Log
@@ -41,6 +25,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.example.juricass.JuriCassRoutes
 import com.example.juricass.MainActivity
 import com.example.juricass.assertCurrentRouteName
+import com.example.juricass.data.fixtures.SearchPageFixture
 import com.example.juricass.data.model.SearchPage
 import com.example.juricass.data.model.SearchQuery
 import com.example.juricass.data.model.SearchResult
@@ -124,22 +109,7 @@ class HomeScreenTest {
     @Test
     fun home_search_is_not_null_no_results() {
         var homeState = HomeState(
-            searchPage = SearchPage(
-                page= 0,
-                pageSize= 10,
-                query = SearchQuery(
-                    query= "propriété",
-                    resolveReferences =  true
-                ),
-                total =  10000,
-                previousPage =  null,
-                nextPage= "query=propri%C3%A9t%C3%A9&resolve_references=true&field=&type=&theme=&chamber=&formation=&jurisdiction=&location=&publication=&solution=&page=1",
-                took= 34,
-                maxScore =  1292.1495,
-                results =  emptyList(),
-                relaxed = false,
-                searchQuery = "dmkdmefmez"
-            )
+            searchPage = SearchPageFixture.searchPageNoResults()
         )
 
         composeTestRule.setContent {
@@ -152,39 +122,7 @@ class HomeScreenTest {
     @Test
     fun home_search_is_not_null_results() {
         var homeState = HomeState(
-            searchPage = SearchPage(
-                page= 0,
-                pageSize= 10,
-                query = SearchQuery(
-                    query= "propriété",
-                    resolveReferences =  true
-                ),
-                total =  10000,
-                previousPage =  null,
-                nextPage= "query=propri%C3%A9t%C3%A9&resolve_references=true&field=&type=&theme=&chamber=&formation=&jurisdiction=&location=&publication=&solution=&page=1",
-                took= 34,
-                maxScore =  1292.1495,
-                results =  listOf(
-                    SearchResult(
-                        score = 666.666,
-                        id = "hdjzhsjshsjs",
-                        jurisdiction = "cc",
-                        chamber = "chamber",
-                        numbers = listOf("5667"),
-                        number = "6475758",
-                        publication = listOf("bulletin"),
-                        decisionDate = "2023-06-06",
-                        type = "type",
-                        solution = "rejet",
-                        summary = "",
-                        highlights = null,
-                        files = null,
-                        themes = null
-                    )
-                ),
-                relaxed = false,
-                searchQuery = "dmkdmefmez"
-            )
+            searchPage = SearchPageFixture.searchPage()
         )
 
         composeTestRule.setContent {

@@ -101,26 +101,21 @@ fun Modifier.shimmerEffect(): Modifier = composed {
         }
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+
 @Preview(showBackground = true, showSystemUi = true)
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
 @Composable
 fun SkeletonLoaderPreview() {
     JuriCassTheme() {
-        Scaffold(modifier = Modifier.fillMaxSize()) {
-            SkeletonLoader(isLoading = true)
-        }
+        SkeletonLoader(isLoading = true)
     }
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Preview(showBackground = true, showSystemUi = true)
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
 @Composable
 fun SkeletonLoaderWithErrorPreview() {
     JuriCassTheme() {
-        Scaffold(modifier = Modifier.fillMaxSize()) {
             SkeletonLoader(isLoading= false, error = "An error occured")
-        }
     }
 }
