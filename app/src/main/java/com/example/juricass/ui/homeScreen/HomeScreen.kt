@@ -67,7 +67,7 @@ fun HomeScreen(state: HomeState, navController: NavController, homeSearch: () ->
 }
 
 
-
+//test
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, showSystemUi = true)
 @Composable
 fun EmptyHomeScreenPreviewDark() {
