@@ -101,12 +101,7 @@ fun HeaderText(text: String = "") {
 fun ThemesDisplayer(themes: List<String>?, outlined: Boolean = true) {
     if(!themes.isNullOrEmpty()) {
         FlowRow(horizontalArrangement = Arrangement.Start ) {
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .height(1.dp)
-                    .background(MaterialTheme.colors.secondary)
-            )
+            Divider()
             Spacer(modifier = Modifier.height(8.dp))
             for(theme in themes) {
                 Pill(theme, outlined)
