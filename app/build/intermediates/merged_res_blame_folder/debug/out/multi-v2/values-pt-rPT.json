@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.juricass.app-mergeDebugResources-48:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.juricass.app-mergeDebugResources-47:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nicol\\.gradle\\caches\\transforms-3\\a86b94ff67adf909014be1d8df99d1b5\\transformed\\ui-1.4.3\\res\\values-pt-rPT\\values-pt-rPT.xml",

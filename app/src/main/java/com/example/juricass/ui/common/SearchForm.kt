@@ -18,38 +18,43 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import com.vanpra.composematerialdialogs.MaterialDialog
-import com.vanpra.composematerialdialogs.datetime.date.datepicker
-import com.vanpra.composematerialdialogs.rememberMaterialDialogState
+
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun SearchForm() {
-    var searchQuery by rememberSaveable { mutableStateOf("") }
-    var pickedStartDate by remember { mutableStateOf(LocalDate.now()) }
-    val formattedSTartDate by remember {
-        derivedStateOf {
-            DateTimeFormatter
-                .ofPattern("MMM-dd-yyyy")
-                .format(pickedStartDate)
-        }
-    }
+fun SearchForm(
+    onSearchQueryChanged: (String) -> Unit,
+    onStartDateSet: (LocalDate) -> Unit,
+    onEndDateSet: (LocalDate) -> Unit,
+    onExactSet: (Boolean) -> Unit,
+) {
+
+    var popDatePicker by remember { mutableStateOf(false)}
+    var searchQuery by remember { mutableStateOf("") }
 
     Column (modifier = Modifier.padding(16.dp)) {
         TextField(value = searchQuery, onValueChange = { newValue ->
             searchQuery = newValue
+            onSearchQueryChanged(searchQuery)
         })
+
         Button(onClick = {
-            
+            popDatePicker = true
         }) {
             Text(text="start date")
         }
         Text(text=searchQuery)
-        Text(text = pickedStartDate.toString())
-        //DatePicker(onDateSelected = {newDate -> pickedStartDate = newDate}) {
-        //
-        //}
+
+        if(popDatePicker) {
+            JuriDatePicker(
+                onDateSelected = {
+                    newDate -> onStartDateSet(newDate)
+                    popDatePicker = false
+                },
+                onDismissRequest = { popDatePicker = false}
+            )
+        }
         
     }
 

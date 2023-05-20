@@ -31,6 +31,7 @@ import com.example.juricass.ui.decisionScreen.DecisionViewModelFactory
 import com.example.juricass.ui.homeScreen.HomeScreen
 import com.example.juricass.ui.homeScreen.HomeViewModel
 import com.example.juricass.ui.settingsScreen.SettingsScreen
+import java.time.LocalDate
 
 enum class JuriCassRoutes() {
     HOME,
@@ -65,7 +66,11 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(
                                 homeState,
                                 navController,
-                                homeSearch = homeViewModel::homeSearch
+                                homeSearch = homeViewModel::homeSearch,
+                                onSearchQueryChanged = { searchQuery:String -> homeViewModel.setSearchQuery(searchQuery) },
+                                onStartDateSet = { startDate: LocalDate -> homeViewModel.setStartDAte(startDate) },
+                                onEndDateSet = { endDate:LocalDate -> homeViewModel.setEndDate(endDate) },
+                                onExactSet = { exact:Boolean -> homeViewModel.setExact(exact) }
                             )
                         }
                         composable(route = JuriCassRoutes.SETTINGS.name) {

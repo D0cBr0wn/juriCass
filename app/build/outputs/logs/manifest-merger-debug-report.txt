@@ -4,7 +4,6 @@ ADDED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
-MERGED from [io.github.vanpra.compose-material-dialogs:datetime:0.9.0] C:\Users\nicol\.gradle\caches\transforms-3\7c412a02babc69b4a1482a151f038685\transformed\datetime-0.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-compose:2.5.3] C:\Users\nicol\.gradle\caches\transforms-3\7450689e545c89fbd31242df946cd52a\transformed\navigation-compose-2.5.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.3] C:\Users\nicol\.gradle\caches\transforms-3\cbbc97b5c6ed78e1af099cc5bec2754f\transformed\navigation-runtime-ktx-2.5.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\nicol\.gradle\caches\transforms-3\5190fe1770df492c2f36bd416bc2a09b\transformed\navigation-runtime-2.5.3\AndroidManifest.xml:17:1-24:12
@@ -14,10 +13,7 @@ MERGED from [androidx.activity:activity-compose:1.7.1] C:\Users\nicol\.gradle\ca
 MERGED from [com.google.accompanist:accompanist-swiperefresh:0.27.0] C:\Users\nicol\.gradle\caches\transforms-3\3c12cbd3e3ad1fef9a100b0285c89d1c\transformed\accompanist-swiperefresh-0.27.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.compose.material:material-ripple:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\03c20bd654be1a7a15087f9182f531f5\transformed\material-ripple-1.4.3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-icons-core:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\ef81771dd7ca4b7fcdbcf9e2a1888f8e\transformed\material-icons-core-1.4.3\AndroidManifest.xml:17:1-22:12
-MERGED from [io.github.vanpra.compose-material-dialogs:core:0.9.0] C:\Users\nicol\.gradle\caches\transforms-3\cd98bc3c178a673ae6515d492f7030b3\transformed\core-0.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\6f212ea7e802a9eb0436a27c95b69bb5\transformed\material-1.4.3\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.accompanist:accompanist-pager:0.25.1] C:\Users\nicol\.gradle\caches\transforms-3\cc603c9ddc500d8f24cb32c09753ac39\transformed\accompanist-pager-0.25.1\AndroidManifest.xml:17:1-24:12
-MERGED from [dev.chrisbanes.snapper:snapper:0.2.2] C:\Users\nicol\.gradle\caches\transforms-3\046c4220c532ee6769de8721528508ce\transformed\snapper-0.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.compose.foundation:foundation:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\d976405a8697dd54027f0ffc2360ec89\transformed\foundation-1.4.3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.foundation:foundation-layout:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\a1f75b5353dd80fccd3e90f43ead8439\transformed\foundation-layout-1.4.3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.animation:animation-core:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\e032e2f43aa8ed5baca6fb4026096e67\transformed\animation-core-1.4.3\AndroidManifest.xml:17:1-22:12
@@ -58,7 +54,6 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ni
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\nicol\.gradle\caches\transforms-3\c084616ff2ed6ed7eccc7569ec3e4b50\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\nicol\.gradle\caches\transforms-3\34414ff6201c462e2532a7e33b2fd53e\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\nicol\.gradle\caches\transforms-3\4f9d30783e04f779e36824051d42a627\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [io.github.aakira:napier-android-debug:1.4.1] C:\Users\nicol\.gradle\caches\transforms-3\6904009dc6f75198304804f664bd7d3b\transformed\napier-debug\AndroidManifest.xml:2:1-11:12
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml:2:1-29:12
@@ -142,8 +137,6 @@ uses-sdk
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml
-MERGED from [io.github.vanpra.compose-material-dialogs:datetime:0.9.0] C:\Users\nicol\.gradle\caches\transforms-3\7c412a02babc69b4a1482a151f038685\transformed\datetime-0.9.0\AndroidManifest.xml:5:5-44
-MERGED from [io.github.vanpra.compose-material-dialogs:datetime:0.9.0] C:\Users\nicol\.gradle\caches\transforms-3\7c412a02babc69b4a1482a151f038685\transformed\datetime-0.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-compose:2.5.3] C:\Users\nicol\.gradle\caches\transforms-3\7450689e545c89fbd31242df946cd52a\transformed\navigation-compose-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-compose:2.5.3] C:\Users\nicol\.gradle\caches\transforms-3\7450689e545c89fbd31242df946cd52a\transformed\navigation-compose-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.3] C:\Users\nicol\.gradle\caches\transforms-3\cbbc97b5c6ed78e1af099cc5bec2754f\transformed\navigation-runtime-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
@@ -162,14 +155,8 @@ MERGED from [androidx.compose.material:material-ripple:1.4.3] C:\Users\nicol\.gr
 MERGED from [androidx.compose.material:material-ripple:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\03c20bd654be1a7a15087f9182f531f5\transformed\material-ripple-1.4.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material:material-icons-core:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\ef81771dd7ca4b7fcdbcf9e2a1888f8e\transformed\material-icons-core-1.4.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material:material-icons-core:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\ef81771dd7ca4b7fcdbcf9e2a1888f8e\transformed\material-icons-core-1.4.3\AndroidManifest.xml:20:5-44
-MERGED from [io.github.vanpra.compose-material-dialogs:core:0.9.0] C:\Users\nicol\.gradle\caches\transforms-3\cd98bc3c178a673ae6515d492f7030b3\transformed\core-0.9.0\AndroidManifest.xml:5:5-44
-MERGED from [io.github.vanpra.compose-material-dialogs:core:0.9.0] C:\Users\nicol\.gradle\caches\transforms-3\cd98bc3c178a673ae6515d492f7030b3\transformed\core-0.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\6f212ea7e802a9eb0436a27c95b69bb5\transformed\material-1.4.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material:material:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\6f212ea7e802a9eb0436a27c95b69bb5\transformed\material-1.4.3\AndroidManifest.xml:20:5-44
-MERGED from [com.google.accompanist:accompanist-pager:0.25.1] C:\Users\nicol\.gradle\caches\transforms-3\cc603c9ddc500d8f24cb32c09753ac39\transformed\accompanist-pager-0.25.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.accompanist:accompanist-pager:0.25.1] C:\Users\nicol\.gradle\caches\transforms-3\cc603c9ddc500d8f24cb32c09753ac39\transformed\accompanist-pager-0.25.1\AndroidManifest.xml:20:5-22:41
-MERGED from [dev.chrisbanes.snapper:snapper:0.2.2] C:\Users\nicol\.gradle\caches\transforms-3\046c4220c532ee6769de8721528508ce\transformed\snapper-0.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [dev.chrisbanes.snapper:snapper:0.2.2] C:\Users\nicol\.gradle\caches\transforms-3\046c4220c532ee6769de8721528508ce\transformed\snapper-0.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.compose.foundation:foundation:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\d976405a8697dd54027f0ffc2360ec89\transformed\foundation-1.4.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.foundation:foundation:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\d976405a8697dd54027f0ffc2360ec89\transformed\foundation-1.4.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.foundation:foundation-layout:1.4.3] C:\Users\nicol\.gradle\caches\transforms-3\a1f75b5353dd80fccd3e90f43ead8439\transformed\foundation-layout-1.4.3\AndroidManifest.xml:20:5-44
@@ -250,8 +237,6 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\nicol\.gradle\cach
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\nicol\.gradle\caches\transforms-3\34414ff6201c462e2532a7e33b2fd53e\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\nicol\.gradle\caches\transforms-3\4f9d30783e04f779e36824051d42a627\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\nicol\.gradle\caches\transforms-3\4f9d30783e04f779e36824051d42a627\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [io.github.aakira:napier-android-debug:1.4.1] C:\Users\nicol\.gradle\caches\transforms-3\6904009dc6f75198304804f664bd7d3b\transformed\napier-debug\AndroidManifest.xml:7:5-9:41
-MERGED from [io.github.aakira:napier-android-debug:1.4.1] C:\Users\nicol\.gradle\caches\transforms-3\6904009dc6f75198304804f664bd7d3b\transformed\napier-debug\AndroidManifest.xml:7:5-9:41
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml
 INJECTED from D:\Android_perso\juriCass\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion

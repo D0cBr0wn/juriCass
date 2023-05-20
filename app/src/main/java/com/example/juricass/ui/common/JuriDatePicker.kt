@@ -29,7 +29,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun DatePicker(onDateSelected: (LocalDate) -> Unit, onDismissRequest: () -> Unit) {
+fun JuriDatePicker(onDateSelected: (LocalDate) -> Unit, onDismissRequest: () -> Unit) {
     val selDate = remember { mutableStateOf(LocalDate.now()) }
 
     //todo - add strings to resource after POC

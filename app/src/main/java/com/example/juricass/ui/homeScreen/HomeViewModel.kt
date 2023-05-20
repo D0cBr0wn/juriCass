@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.net.URLEncoder
+import java.time.LocalDate
 
 class HomeViewModel(): ViewModel() {
     private val _homeState = MutableStateFlow(HomeState())
@@ -32,5 +33,22 @@ class HomeViewModel(): ViewModel() {
             }
             _homeState.update { currentState -> currentState.copy(isLoading = false)}
         }
+    }
+
+    fun setSearchQuery(query: String) {
+        _homeState.update { currentState -> currentState.copy(searchQuery = query) }
+    }
+
+    fun setStartDAte(date: LocalDate) {
+        val formattedDate = date.toString()// TODO : proper convesrion
+        _homeState.update { currentState -> currentState.copy(startDate = formattedDate) }
+    }
+
+    fun setEndDate(date: LocalDate) {
+        val formattedDate = date.toString()// TODO : proper convesrion
+        _homeState.update { currentState -> currentState.copy(endDate = formattedDate) }
+    }
+    fun setExact(exact: Boolean) {
+        _homeState.update { currentState -> currentState.copy(exact = exact) }
     }
 }
