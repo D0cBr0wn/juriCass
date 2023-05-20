@@ -45,7 +45,13 @@
     <string name="openMenu">Open Menu</string>
     <string name="pourvoi_number">Pourvoi n°</string>
     <string name="read">Read</string>
+    <string name="search">Search</string>
     <string name="textOfDecision">Texte de la décision :</string>
+    <style name="Calandar" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:calendarTextColor">@color/white</item>
+        <item name="android:focusedMonthDateColor">@color/success</item>
+    </style>
     <style name="Theme.JuriCass" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/status_bar</item>
     </style>

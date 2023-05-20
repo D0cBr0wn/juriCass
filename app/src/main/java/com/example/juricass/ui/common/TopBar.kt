@@ -25,6 +25,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.juricass.JuriCassRoutes
 import com.example.juricass.R
+import com.example.juricass.data.state.HomeState
 import com.example.juricass.ui.theme.JuriCassTheme
 import java.time.LocalDate
 
@@ -32,10 +33,12 @@ import java.time.LocalDate
 @Composable
 fun HomeTopBar(
     navController: NavController,
+    state: HomeState,
     onSearchQueryChanged: (String) -> Unit,
     onStartDateSet: (LocalDate) -> Unit,
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
+    resetFields: () -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
     val menuItems = listOf("Bookmarks", "Settings")
@@ -53,7 +56,7 @@ fun HomeTopBar(
                 onDismissRequest = { expanded = false },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                SearchForm(onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet)
+                SearchForm(state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields)
                 Spacer(modifier = Modifier.height(16.dp))
                 Divider()
                 Spacer(modifier = Modifier.height(16.dp))
@@ -101,7 +104,7 @@ fun HomeBarPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
         Scaffold(modifier = Modifier.fillMaxSize()) {
-            HomeTopBar(navController, onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {})
+            HomeTopBar(navController, HomeState(), onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {}, resetFields = {})
         }
     }
 }

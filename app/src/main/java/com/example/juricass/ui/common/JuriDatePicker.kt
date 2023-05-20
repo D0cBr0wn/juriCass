@@ -116,7 +116,7 @@ fun CustomCalendarView(onDateSelected: (LocalDate) -> Unit) {
     AndroidView(
         modifier = Modifier.wrapContentSize(),
         factory = { context ->
-            CalendarView(ContextThemeWrapper(context, R.style.Theme_JuriCass))
+            CalendarView(ContextThemeWrapper(context, R.style.Calandar))
         },
         update = { view ->
 

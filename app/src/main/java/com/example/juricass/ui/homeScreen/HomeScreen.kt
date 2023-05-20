@@ -42,12 +42,12 @@ fun HomeScreen(
     onStartDateSet: (LocalDate) -> Unit,
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
-
+    resetFields: () -> Unit
 ) {
 
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
     Scaffold(
-        topBar = { HomeTopBar(navController, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet) },
+        topBar = { HomeTopBar(navController, state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields) },
         modifier = Modifier,
         content = { padding -> Column(modifier = Modifier.padding(padding)) {
             Column(
@@ -57,7 +57,6 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                Text(text= state.startDate)
                 SkeletonLoader(state.isLoading, error = state.error)
                 SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
 
@@ -84,7 +83,7 @@ fun HomeScreen(
 fun EmptyHomeScreenPreviewDark() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(), navController, {} , {}, {}, {}, {})
+        HomeScreen(HomeState(), navController, {} , {}, {}, {}, {}, {})
     }
 }
 
@@ -93,7 +92,7 @@ fun EmptyHomeScreenPreviewDark() {
 fun EmptyHomeScreenPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(), navController, {}, {}, {}, {}, {})
+        HomeScreen(HomeState(), navController, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -102,7 +101,7 @@ fun EmptyHomeScreenPreview() {
 fun HomeScreenPreviewDark() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {})
+        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {}, {})
     }
 }
 
@@ -111,6 +110,6 @@ fun HomeScreenPreviewDark() {
 fun HomeScreenPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {})
+        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {}, {})
     }
 }
