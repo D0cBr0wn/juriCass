@@ -18,7 +18,20 @@ fun getFormatter(): DateTimeFormatter {
 }
 
 fun convertDatesForQuery(localDate: LocalDate): String {
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    return localDate.format(formatter)
+}
+
+fun convertDatesForDisplay(localDate: LocalDate): String {
     val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
     return localDate.format(formatter)
+}
+
+fun convertQueryDateForDisplay(dateString: String): String {
+    val sourceFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    val targetFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+
+    val date = LocalDate.parse(dateString, sourceFormat)
+    return date.format(targetFormat)
 }
 

@@ -38,7 +38,9 @@ import androidx.compose.ui.text.font.FontVariation.weight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import com.example.juricass.R
+import com.example.juricass.data.helpers.convertDatesForDisplay
 import com.example.juricass.data.helpers.convertDatesForQuery
+import com.example.juricass.data.helpers.convertQueryDateForDisplay
 import com.example.juricass.data.state.HomeState
 
 import java.time.LocalDate
@@ -58,10 +60,10 @@ fun SearchForm(
 
     var popStartDate by remember { mutableStateOf(false)}
     var popEndDate by remember { mutableStateOf(false)}
-    var searchQuery by remember { mutableStateOf("") }
+    var searchQuery by remember { mutableStateOf(state.searchQuery) }
     var checked by remember { mutableStateOf(false)}
-    var startLabel by remember { mutableStateOf( "start date") }
-    var endLabel by remember { mutableStateOf("end date") }
+    var startLabel by remember { mutableStateOf(if(state.startDate != null) convertQueryDateForDisplay(state.startDate) else "start date") }
+    var endLabel by remember { mutableStateOf(if(state.endDate != null) convertQueryDateForDisplay(state.endDate) else "end date") }
 
     Column (modifier = Modifier
         .padding(16.dp)
@@ -141,10 +143,10 @@ fun SearchForm(
                 onDateSelected = {
                     newDate -> if(popStartDate ) {
                         onStartDateSet(newDate)
-                        startLabel = convertDatesForQuery(newDate)
+                        startLabel = convertDatesForDisplay(newDate)
                     } else {
                         onEndDateSet(newDate)
-                        endLabel = convertDatesForQuery(newDate)
+                        endLabel = convertDatesForDisplay(newDate)
                     }
                     popStartDate = false
                     popEndDate = false

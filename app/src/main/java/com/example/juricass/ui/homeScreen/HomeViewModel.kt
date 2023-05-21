@@ -23,7 +23,7 @@ class HomeViewModel(): ViewModel() {
 
     fun homeSearch() {
         viewModelScope.launch {
-            _homeState.update { currentState -> currentState.copy(isLoading = true, error = null) }
+            _homeState.update { currentState -> currentState.copy(isLoading = true, error = null, searchPage = null) }
 
             JudilibreApi.retrofitService.search(
                 query = _homeState.value.searchQuery,

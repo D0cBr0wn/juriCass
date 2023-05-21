@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
@@ -50,7 +51,7 @@ fun HomeTopBar(
         backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
             IconButton(onClick = { onMenuTriggerClick() }) {
-                Icon(Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
+                Icon(if(state.menuExpanded) Icons.Filled.Close else Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
             }
 
             DropdownMenu(
