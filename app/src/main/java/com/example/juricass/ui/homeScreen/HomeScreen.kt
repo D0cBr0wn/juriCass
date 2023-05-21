@@ -43,11 +43,14 @@ fun HomeScreen(
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
     resetFields: () -> Unit,
+    onMenuTriggerClick: () -> Unit,
+    onCloseMenu: () -> Unit
 ) {
 
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
+
     Scaffold(
-        topBar = { HomeTopBar(navController, state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields, homeSearch) },
+        topBar = { HomeTopBar(navController, state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields, homeSearch, onMenuTriggerClick, onCloseMenu) },
         modifier = Modifier,
         content = { padding -> Column(modifier = Modifier.padding(padding)) {
             Column(
@@ -61,12 +64,26 @@ fun HomeScreen(
                 SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
                     SkeletonLoader(state.isLoading, error = state.error)
                     if (state.searchPage === null || state.searchPage!!.results.isEmpty()) {
-                        if(!state.isLoading) Text(text = stringResource(id = R.string.no_result_found))
-                    } else {
+                        if(!state.isLoading){
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement  = Arrangement.Top,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                            ) {
+                                Spacer(modifier = Modifier.height(32.dp))
+                                Text(text = stringResource(id = R.string.no_result_found))
+                                Spacer(modifier = Modifier.height(32.dp))
+                                Button(onClick = homeSearch) {
+                                    Text("Refresh")
+                                }
+                            }
+                        }
+                   } else {
                         LazyColumn(modifier = Modifier.testTag("homeLazyColumn"))  {
                             itemsIndexed(state.searchPage!!.results) { index, item ->
-                                if (!state.isLoading) SearchResultDisplayer(item, navController)
-                            }
+                              if (!state.isLoading) SearchResultDisplayer(item, navController)
+                           }
                         }
                     }
                 }
@@ -83,7 +100,7 @@ fun HomeScreen(
 fun EmptyHomeScreenPreviewDark() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(), navController, {} , {}, {}, {}, {}, {})
+        HomeScreen(HomeState(), navController, {} , {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -92,7 +109,7 @@ fun EmptyHomeScreenPreviewDark() {
 fun EmptyHomeScreenPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(), navController, {}, {}, {}, {}, {}, {})
+        HomeScreen(HomeState(), navController, {}, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -101,7 +118,7 @@ fun EmptyHomeScreenPreview() {
 fun HomeScreenPreviewDark() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {}, {})
+        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -110,6 +127,6 @@ fun HomeScreenPreviewDark() {
 fun HomeScreenPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
-        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {}, {})
+        HomeScreen(HomeState(searchPage = SearchPageFixture.searchPage()), navController, {} , {}, {}, {}, {}, {}, {}, {})
     }
 }

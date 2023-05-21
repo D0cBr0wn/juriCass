@@ -9,7 +9,7 @@ data class HomeState (
     val menuExpanded: Boolean = false,
     val healthCheck: String = "unset",
     val searchPage: SearchPage? = null,
-    val searchQuery: String = "",
+    val searchQuery: String = "Propriété",
     val exact: String? = null,
     val startDate: String? = null,
     val endDate: String? = null,

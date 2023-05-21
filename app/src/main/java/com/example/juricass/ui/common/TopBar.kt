@@ -39,22 +39,23 @@ fun HomeTopBar(
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
     resetFields: () -> Unit,
-    onSearchCall: () -> Unit
+    onSearchCall: () -> Unit,
+    onMenuTriggerClick: () -> Unit,
+    onCloseMenu: () -> Unit
 ) {
-    var expanded by remember { mutableStateOf(false) }
     val menuItems = listOf("Bookmarks", "Settings")
 
     TopAppBar(
         title = { Text(stringResource(R.string.appName)) },
         backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
-            IconButton(onClick = { expanded = true }) {
+            IconButton(onClick = { onMenuTriggerClick() }) {
                 Icon(Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
             }
 
             DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
+                expanded = state.menuExpanded,
+                onDismissRequest = { onCloseMenu() },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 SearchForm(state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields, onSearchCall)
@@ -64,7 +65,7 @@ fun HomeTopBar(
                 menuItems.forEachIndexed { index, title ->
                     DropdownMenuItem(onClick = {
                         // Handle menu item click
-                        expanded = false
+                        onCloseMenu()
                         when (index) {
                             0 ->  navController.navigate(JuriCassRoutes.BOOKMARKS.name) // Handle Option 1,
                             1 ->  navController.navigate(JuriCassRoutes.SETTINGS.name) // Handle Option 2,
@@ -105,7 +106,7 @@ fun HomeBarPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
         Scaffold(modifier = Modifier.fillMaxSize()) {
-            HomeTopBar(navController, HomeState(), onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {}, resetFields = {}, onSearchCall = {})
+            HomeTopBar(navController, HomeState(), onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {}, resetFields = {}, onSearchCall = {}, onMenuTriggerClick = {}, onCloseMenu = {})
         }
     }
 }

@@ -64,7 +64,9 @@ class MainActivity : ComponentActivity() {
                                 onStartDateSet = { startDate: LocalDate -> homeViewModel.setStartDate(startDate) },
                                 onEndDateSet = { endDate:LocalDate -> homeViewModel.setEndDate(endDate) },
                                 onExactSet = { exact:Boolean -> homeViewModel.setExact(exact) },
-                                resetFields = homeViewModel::resetFields
+                                resetFields = homeViewModel::resetFields,
+                                onMenuTriggerClick = homeViewModel::onMenuTriggerClick,
+                                onCloseMenu = homeViewModel::onCloseMenu
                             )
                         }
                         composable(route = JuriCassRoutes.SETTINGS.name) {

@@ -23,7 +23,7 @@ class HomeViewModel(): ViewModel() {
 
     fun homeSearch() {
         viewModelScope.launch {
-            _homeState.update { currentState -> currentState.copy(isLoading = true) }
+            _homeState.update { currentState -> currentState.copy(isLoading = true, error = null) }
 
             JudilibreApi.retrofitService.search(
                 query = _homeState.value.searchQuery,
@@ -31,13 +31,12 @@ class HomeViewModel(): ViewModel() {
                 endDate = _homeState.value.endDate,
                 exact = _homeState.value.exact
             ).onSuccess {
-                _homeState.update { currentState -> currentState.copy(searchPage = it) }
+                _homeState.update { currentState -> currentState.copy(searchPage = it, isLoading = false, menuExpanded = false) }
             }
             .onFailure {
-                _homeState.update { currentState -> currentState.copy(error = it.localizedMessage) }
+                _homeState.update { currentState -> currentState.copy(error = it.localizedMessage, isLoading = false, menuExpanded = false) }
                 Log.e("API Error", it.toString())
             }
-            _homeState.update { currentState -> currentState.copy(isLoading = false)}
         }
     }
 
@@ -64,5 +63,13 @@ class HomeViewModel(): ViewModel() {
         setStartDate(null)
         setEndDate(null)
         setExact(false)
+    }
+
+    fun onMenuTriggerClick() {
+        _homeState.update { currentState -> currentState.copy(menuExpanded = !_homeState.value.menuExpanded) }
+    }
+
+    fun onCloseMenu() {
+        _homeState.update { currentState -> currentState.copy(menuExpanded = false) }
     }
 }
