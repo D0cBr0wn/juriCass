@@ -1,24 +1,17 @@
 package com.example.juricass
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.juricass.ui.theme.JuriCassTheme
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -31,6 +24,7 @@ import com.example.juricass.ui.decisionScreen.DecisionViewModelFactory
 import com.example.juricass.ui.homeScreen.HomeScreen
 import com.example.juricass.ui.homeScreen.HomeViewModel
 import com.example.juricass.ui.settingsScreen.SettingsScreen
+import java.time.LocalDate
 
 enum class JuriCassRoutes() {
     HOME,
@@ -65,7 +59,14 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(
                                 homeState,
                                 navController,
-                                homeSearch = homeViewModel::homeSearch
+                                homeSearch = homeViewModel::homeSearch,
+                                onSearchQueryChanged = { searchQuery:String -> homeViewModel.setSearchQuery(searchQuery) },
+                                onStartDateSet = { startDate: LocalDate -> homeViewModel.setStartDate(startDate) },
+                                onEndDateSet = { endDate:LocalDate -> homeViewModel.setEndDate(endDate) },
+                                onExactSet = { exact:Boolean -> homeViewModel.setExact(exact) },
+                                resetFields = homeViewModel::resetFields,
+                                onMenuTriggerClick = homeViewModel::onMenuTriggerClick,
+                                onCloseMenu = homeViewModel::onCloseMenu
                             )
                         }
                         composable(route = JuriCassRoutes.SETTINGS.name) {

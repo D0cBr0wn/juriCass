@@ -52,7 +52,9 @@ string no_result_found
 string openMenu
 string pourvoi_number
 string read
+string search
 string textOfDecision
+style Calandar
 style Theme.JuriCass
 xml backup_rules
 xml data_extraction_rules

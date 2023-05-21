@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.util.Log
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
@@ -24,31 +26,47 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.juricass.JuriCassRoutes
 import com.example.juricass.R
+import com.example.juricass.data.state.HomeState
 import com.example.juricass.ui.theme.JuriCassTheme
+import java.time.LocalDate
 
 
 @Composable
-fun HomeTopBar(navController: NavController) {
-    var expanded by remember { mutableStateOf(false) }
+fun HomeTopBar(
+    navController: NavController,
+    state: HomeState,
+    onSearchQueryChanged: (String) -> Unit,
+    onStartDateSet: (LocalDate) -> Unit,
+    onEndDateSet: (LocalDate) -> Unit,
+    onExactSet: (Boolean) -> Unit,
+    resetFields: () -> Unit,
+    onSearchCall: () -> Unit,
+    onMenuTriggerClick: () -> Unit,
+    onCloseMenu: () -> Unit
+) {
     val menuItems = listOf("Bookmarks", "Settings")
 
     TopAppBar(
         title = { Text(stringResource(R.string.appName)) },
         backgroundColor = MaterialTheme.colors.primary,
         navigationIcon = {
-            IconButton(onClick = { expanded = true }) {
-                Icon(Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
+            IconButton(onClick = { onMenuTriggerClick() }) {
+                Icon(if(state.menuExpanded) Icons.Filled.Close else Icons.Filled.Menu, contentDescription = stringResource(R.string.openMenu))
             }
 
             DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
+                expanded = state.menuExpanded,
+                onDismissRequest = { onCloseMenu() },
                 modifier = Modifier.fillMaxWidth()
             ) {
+                SearchForm(state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields, onSearchCall)
+                Spacer(modifier = Modifier.height(16.dp))
+                Divider()
+                Spacer(modifier = Modifier.height(16.dp))
                 menuItems.forEachIndexed { index, title ->
                     DropdownMenuItem(onClick = {
                         // Handle menu item click
-                        expanded = false
+                        onCloseMenu()
                         when (index) {
                             0 ->  navController.navigate(JuriCassRoutes.BOOKMARKS.name) // Handle Option 1,
                             1 ->  navController.navigate(JuriCassRoutes.SETTINGS.name) // Handle Option 2,
@@ -89,7 +107,7 @@ fun HomeBarPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
         Scaffold(modifier = Modifier.fillMaxSize()) {
-            HomeTopBar(navController)
+            HomeTopBar(navController, HomeState(), onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {}, resetFields = {}, onSearchCall = {}, onMenuTriggerClick = {}, onCloseMenu = {})
         }
     }
 }
