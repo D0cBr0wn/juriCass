@@ -6,11 +6,12 @@ import java.time.LocalDate
 
 data class HomeState (
     val isLoading: Boolean = false,
+    val menuExpanded: Boolean = false,
     val healthCheck: String = "unset",
     val searchPage: SearchPage? = null,
     val searchQuery: String = "",
-    val exact: Boolean = false,
-    val startDate: String = "",
-    val endDate: String = "",
+    val exact: String? = null,
+    val startDate: String? = null,
+    val endDate: String? = null,
     val error: String? = null
 )

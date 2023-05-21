@@ -43,7 +43,10 @@ interface JudilibreApiService {
 
     @GET("search")
     suspend fun search(
-        @Query("query") query: String,
+        @Query("query") query: String = "propriété",//TODO: remove default value when API will be ready
+        @Query("date_start") startDate: String? = null,
+        @Query("date_end") endDate: String? = null,
+        @Query("operator", encoded = true) exact: String? = null,
         @Query("resolve_references") resolve_references: Boolean = true
     ): Result<SearchPage>
 

@@ -38,7 +38,8 @@ fun HomeTopBar(
     onStartDateSet: (LocalDate) -> Unit,
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
-    resetFields: () -> Unit
+    resetFields: () -> Unit,
+    onSearchCall: () -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
     val menuItems = listOf("Bookmarks", "Settings")
@@ -56,7 +57,7 @@ fun HomeTopBar(
                 onDismissRequest = { expanded = false },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                SearchForm(state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields)
+                SearchForm(state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields, onSearchCall)
                 Spacer(modifier = Modifier.height(16.dp))
                 Divider()
                 Spacer(modifier = Modifier.height(16.dp))
@@ -104,7 +105,7 @@ fun HomeBarPreview() {
     val navController = rememberNavController()
     JuriCassTheme() {
         Scaffold(modifier = Modifier.fillMaxSize()) {
-            HomeTopBar(navController, HomeState(), onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {}, resetFields = {})
+            HomeTopBar(navController, HomeState(), onSearchQueryChanged = {}, onEndDateSet = {}, onExactSet = {}, onStartDateSet = {}, resetFields = {}, onSearchCall = {})
         }
     }
 }

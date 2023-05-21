@@ -3,6 +3,7 @@ package com.example.juricass.ui.homeScreen
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.juricass.data.helpers.convertDatesForQuery
 import com.example.juricass.data.state.HomeState
 import com.example.juricass.network.JudilibreApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,7 +24,13 @@ class HomeViewModel(): ViewModel() {
     fun homeSearch() {
         viewModelScope.launch {
             _homeState.update { currentState -> currentState.copy(isLoading = true) }
-            JudilibreApi.retrofitService.search(query = "propriété").onSuccess {
+
+            JudilibreApi.retrofitService.search(
+                query = _homeState.value.searchQuery,
+                startDate = _homeState.value.startDate,
+                endDate = _homeState.value.endDate,
+                exact = _homeState.value.exact
+            ).onSuccess {
                 _homeState.update { currentState -> currentState.copy(searchPage = it) }
             }
             .onFailure {
@@ -39,18 +46,17 @@ class HomeViewModel(): ViewModel() {
     }
 
     fun setStartDate(date: LocalDate?) {
-        var formattedDate = ""
-        if(date != null) formattedDate = date.toString()// TODO : proper convesrion
+        var formattedDate =  if(date !== null) convertDatesForQuery(date) else null
         _homeState.update { currentState -> currentState.copy(startDate = formattedDate) }
     }
 
     fun setEndDate(date: LocalDate?) {
-        var formattedDate = ""
-        if(date != null) formattedDate = date.toString()// TODO : proper convesrion
+        var formattedDate =  if(date !== null) convertDatesForQuery(date) else null
         _homeState.update { currentState -> currentState.copy(endDate = formattedDate) }
     }
     fun setExact(exact: Boolean) {
-        _homeState.update { currentState -> currentState.copy(exact = exact) }
+        val operator = if(exact) "exact" else null
+        _homeState.update { currentState -> currentState.copy(exact = operator) }
     }
 
     fun resetFields() {

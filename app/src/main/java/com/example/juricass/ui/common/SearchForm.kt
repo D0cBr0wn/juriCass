@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontVariation.weight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import com.example.juricass.R
+import com.example.juricass.data.helpers.convertDatesForQuery
 import com.example.juricass.data.state.HomeState
 
 import java.time.LocalDate
@@ -51,13 +52,16 @@ fun SearchForm(
     onStartDateSet: (LocalDate) -> Unit,
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
-    resetFields: () -> Unit
+    resetFields: () -> Unit,
+    onSearchCall: () -> Unit
 ) {
 
     var popStartDate by remember { mutableStateOf(false)}
     var popEndDate by remember { mutableStateOf(false)}
     var searchQuery by remember { mutableStateOf("") }
     var checked by remember { mutableStateOf(false)}
+    var startLabel by remember { mutableStateOf( "start date") }
+    var endLabel by remember { mutableStateOf("end date") }
 
     Column (modifier = Modifier
         .padding(16.dp)
@@ -89,33 +93,41 @@ fun SearchForm(
             Button(onClick = {
                 popStartDate = true
             }) {
-                Text(text= if(state.startDate !== "") state.startDate else "start date")
+                Text(text= startLabel)
             }
 
             Button(onClick = {
                 popEndDate = true
             }) {
-                Text(text= if(state.endDate !== "") state.endDate else "end date")
+                Text(text= endLabel)
             }
         }
         
         Spacer(modifier = Modifier.height(30.dp))
 
         FlowRow(verticalAlignment = Alignment.CenterVertically) {
-            Button(onClick = { /*TODO*/ }, modifier = Modifier
+            Button(onClick = { onSearchCall() }, modifier = Modifier
                 .weight(0.85f)
                 .height(70.dp)) {
-                Text(text = "Search")
-                Icon(
-                    imageVector = Icons.Filled.Search,
-                    contentDescription = stringResource(R.string.search)
-                )
+
+                if(!state.isLoading) {
+                    Text(text = "Search")
+                    Icon(
+                        imageVector = Icons.Filled.Search,
+                        contentDescription = stringResource(R.string.search)
+                    )
+                } else {
+                    CircleLoader(state.isLoading)
+                }
+
             }
             IconButton(
                 onClick = {
                     resetFields()
                     searchQuery = ""
                     checked = false
+                    startLabel = "start date"
+                    endLabel = "end date"
                 },
                 modifier = Modifier.weight(0.15f)) {
                 Icon(Icons.Filled.Close , contentDescription = "reset fields", tint = MaterialTheme.colors.secondary)
@@ -127,7 +139,13 @@ fun SearchForm(
         if(popStartDate|| popEndDate) {
             JuriDatePicker(
                 onDateSelected = {
-                    newDate -> if(popStartDate ) onStartDateSet(newDate) else onEndDateSet(newDate)
+                    newDate -> if(popStartDate ) {
+                        onStartDateSet(newDate)
+                        startLabel = convertDatesForQuery(newDate)
+                    } else {
+                        onEndDateSet(newDate)
+                        endLabel = convertDatesForQuery(newDate)
+                    }
                     popStartDate = false
                     popEndDate = false
                 },

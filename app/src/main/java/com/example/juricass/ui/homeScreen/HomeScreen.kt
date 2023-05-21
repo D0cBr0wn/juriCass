@@ -42,12 +42,12 @@ fun HomeScreen(
     onStartDateSet: (LocalDate) -> Unit,
     onEndDateSet: (LocalDate) -> Unit,
     onExactSet: (Boolean) -> Unit,
-    resetFields: () -> Unit
+    resetFields: () -> Unit,
 ) {
 
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
     Scaffold(
-        topBar = { HomeTopBar(navController, state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields) },
+        topBar = { HomeTopBar(navController, state, onSearchQueryChanged, onStartDateSet, onEndDateSet, onExactSet, resetFields, homeSearch) },
         modifier = Modifier,
         content = { padding -> Column(modifier = Modifier.padding(padding)) {
             Column(
@@ -57,9 +57,9 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                SkeletonLoader(state.isLoading, error = state.error)
-                SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
 
+                SwipeRefresh(state = swipeRefreshState, onRefresh = homeSearch ) {
+                    SkeletonLoader(state.isLoading, error = state.error)
                     if (state.searchPage === null || state.searchPage!!.results.isEmpty()) {
                         if(!state.isLoading) Text(text = stringResource(id = R.string.no_result_found))
                     } else {
